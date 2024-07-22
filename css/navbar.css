@@ -5,13 +5,20 @@
 }
 
 nav {
-    background-color: #D8CECB;
     display: flex;
     height: 50px;
+    width: 100%;
     justify-content: space-between;
     align-items: center;
     padding: 0 40px;
     font-family: serif;
+    position: fixed;
+    top: 0;
+    background-color: #d8cecb95;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border: 1px solid #d8cecb76;
+    z-index: 1000;
 }
 
 nav li a {
@@ -20,12 +27,24 @@ nav li a {
     text-transform: capitalize;
 }
 
+nav li .image-dumbways {
+    width: 40px;
+}
+
+nav li.li-image-dumbways {
+    margin: 0px 25px 0px 0px;
+}
+
 nav .left ul {
     display: flex;
     list-style: none;
     height: 100%;
     align-items: center;
     gap: 15px;
+}
+
+nav .left ul .home {
+    color: #FF9100
 }
 
 nav .left {
@@ -40,18 +59,18 @@ nav .right {
     align-items: center;
     justify-content: center;
     height: 100%;
-    padding: 10px 0px 0px;
+    padding: 10px 70px 0px 0px;
 }
 
 nav .right button {
     font-weight: bold;
     text-transform: capitalize;
     background-color: #FF9100;
-    height: 80%;
+    height: 60%;
     width: 100px;
     color: white;
     border: none;
-    border-radius: 10px;
+    border-radius: 5px;
 }
 
 .left h1,

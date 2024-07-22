@@ -6,17 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="./css/navbar.css" />
+    <link rel="stylesheet" href="./css/contact.css" />
 </head>
 
 <body>
     <nav>
         <div class="left">
             <ul>
-                <li>
-                    <a href="">home</a>
+                <li class="li-image-dumbways">
+                    <img src="./assets/logo-dumbways.id.png" alt="logo-dumbways" class="image-dumbways" />
                 </li>
                 <li>
-                    <a href="">blog</a>
+                    <a href="./index.html" class="home">home</a>
+                </li>
+                <li>
+                    <a href="">My Project</a>
                 </li>
             </ul>
         </div>
@@ -25,8 +29,42 @@
         </div>
     </nav>
     <div class="contact-container">
-        <div class="parent"></div>
+        <div class="form-container">
+            <h1>GET IN TOUCH</h1>
+            <form action="">
+                <div>
+                    <label for="name">Name </label>
+                    <input type="name" name="name" id="name" />
+                </div>
+                <div>
+                    <label for="email">Email </label>
+                    <input type="email" name="email" id="email" />
+                </div>
+                <div>
+                    <label for="phone">Phone Number </label>
+                    <input type="phone" phone="phone" id="phone" />
+                </div>
+                <div>
+                    <label for="subject">Subject </label>
+                    <select name="subject" id="subject">
+                            <option value=""></option>
+                            <option value="text-1">text1</option>
+                            <option value="text-2">text2</option>
+                            <option value="text-3">text3</option>
+                            <option value="text-4">text4</option>
+                            <option value="text-5">text5</option>
+                        </select>
+                </div>
+                <div>
+                    <label for="message">Your Message </label>
+                    <textarea name="message" id="message"></textarea>
+                </div>
+                <input type="submit" value="submit" class="submit" />
+            </form>
+        </div>
     </div>
+
+    <script src="./js/index.js"></script>
 </body>
 
 </html>
