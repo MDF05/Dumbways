@@ -10,6 +10,11 @@ div.header-list-project {
     margin: 0px 0px 50px;
 }
 
+div.body-card {
+    height: 100px;
+    overflow: hidden;
+}
+
 .header-list-project {
     display: flex;
     justify-content: center;
@@ -29,6 +34,10 @@ div.card-project h1 {
     background-color: red;
 }
 
+div.header-card a {
+    text-decoration: none;
+}
+
 div.header-card p {
     color: grey;
 }
@@ -38,6 +47,11 @@ div.body-card {
 }
 
 div.card-image {
+    display: flex;
+    width: 100%;
+}
+
+div.card-image a {
     display: flex;
     width: 100%;
 }
@@ -72,7 +86,8 @@ div.navigasi-card button {
     height: 25px;
     border: none;
     color: white;
-    border-radius: 5px
+    border-radius: 5px;
+    cursor: pointer;
 }
 
 .list-card {
@@ -91,4 +106,12 @@ div.card-project {
     border-radius: 5px;
     box-sizing: border-box;
     padding: 10px;
+}
+
+.delete:hover {
+    background-color: red;
+}
+
+.edit:hover {
+    background-color: orange;
 }

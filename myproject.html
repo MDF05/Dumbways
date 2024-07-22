@@ -1,98 +1,99 @@
+<!-- @format -->
+
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
-        <link rel="stylesheet" href="./css/navbar.css" />
-        <link rel="stylesheet" href="./css/myproject.css" />
-        <link rel="stylesheet" href="./css/listproject.css" />
-    </head>
 
-    <body>
-        <nav>
-            <div class="left">
-                <ul>
-                    <li class="li-image-dumbways">
-                        <img
-                            src="./assets/dumbways.png"
-                            alt="logo-dumbways"
-                            class="image-dumbways" />
-                    </li>
-                    <li>
-                        <a href="./index.html" class="home">home</a>
-                    </li>
-                    <li>
-                        <a href="./myproject.html">My Project</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="right">
-                <a href="./contact.html">contact me</a>
-            </div>
-        </nav>
-        <div class="container-project">
-            <div class="add-project">
-                <h1>add my project</h1>
-                <form>
-                    <div>
-                        <label for="project">Project Name</label>
-                        <input type="text" name="project" id="project" />
-                    </div>
-                    <div class="date-project">
-                        <span>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/navbar.css" />
+    <link rel="stylesheet" href="./css/myproject.css" />
+    <link rel="stylesheet" href="./css/listproject.css" />
+</head>
+
+<body>
+    <nav>
+        <div class="left">
+            <ul>
+                <li class="li-image-dumbways">
+                    <img src="./assets/dumbways.png" alt="logo-dumbways" class="image-dumbways" />
+                </li>
+                <li>
+                    <a href="./index.html" class="home">home</a>
+                </li>
+                <li>
+                    <a href="./myproject.html">My Project</a>
+                </li>
+            </ul>
+        </div>
+        <div class="right">
+            <a href="./contact.html">contact me</a>
+        </div>
+    </nav>
+    <div class="container-project">
+        <div class="add-project">
+            <h1>add my project</h1>
+            <form>
+                <div>
+                    <label for="project">Project Name</label>
+                    <input type="text" name="project" id="project" />
+                </div>
+                <div class="date-project">
+                    <span>
                             <label for="start-date">start-date</label>
                             <input type="date" name="start-date" id="start-date" />
                         </span>
-                        <span>
+                    <span>
                             <label for="end-date">end-date</label>
                             <input type="date" name="end-date" id="end-date" />
                         </span>
-                    </div>
-                    <div>
-                        <label for="description">description</label>
-                        <textarea name="description" id="description"></textarea>
-                    </div>
-                    <div class="input-technologi">
-                        <div>Technologies</div>
-                        <div class="checkbox-technologi">
-                            <span>
+                </div>
+                <div>
+                    <label for="description">description</label>
+                    <textarea name="description" id="description"></textarea>
+                </div>
+                <div class="input-technologi">
+                    <div>Technologies</div>
+                    <div class="checkbox-technologi">
+                        <span>
                                 <input type="checkbox" name="check-node" id="node" />
                                 <label for="node">Node Js</label>
                             </span>
-                            <span>
-                                <input type="checkbox" name="check-next" id="next" />
-                                <label for="next">Next Js</label>
+                        <span>
+                                <input type="checkbox" name="check-next" id="javascript" />
+                                <label for="javascript">Javascript</label>
                             </span>
-                            <span>
+                        <span>
                                 <input type="checkbox" name="check-react" id="react" />
                                 <label for="react">React Js</label>
                             </span>
-                            <span>
-                                <input type="checkbox" name="check-typescript" id="typescript" />
-                                <label for="typescript">TypeScript</label>
+                        <span>
+                                <input type="checkbox" name="check-typescript" id="socket" />
+                                <label for="socket">Socket.io</label>
                             </span>
-                        </div>
                     </div>
-                    <div>
-                        <label for="image-project">Upload Image</label>
-                        <input type="file" id="image-project" name="image-project" />
-                    </div>
-                    <div class="container-submit">
-                        <input type="submit" value="submit" id="submit-project" />
-                    </div>
-                </form>
-            </div>
-        </div>
-        <div class="container-list-project">
-            <div class="list-project">
-                <div class="header-list-project">
-                    <h1>my project</h1>
                 </div>
-                <div class="list-card"></div>
-            </div>
+                <div>
+                    <label for="image-project">Upload Image</label>
+                    <input type="file" id="image-project" name="image-project" />
+                </div>
+                <div class="container-submit">
+                    <input type="submit" value="submit" id="submit-project" />
+                </div>
+            </form>
         </div>
+    </div>
+    <div class="container-list-project">
+        <div class="list-project">
+            <div class="header-list-project">
+                <h1>my project</h1>
+            </div>
+            <div class="list-card"></div>
+        </div>
+    </div>
 
-        <script src="./js/myproject.js"></script>
-    </body>
+    <script src="./js/myproject.js"></script>
+</body>
+
 </html>

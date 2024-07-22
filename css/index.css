@@ -20,8 +20,17 @@ body {
     padding: 50px;
 }
 
+.left-card p {
+    line-height: 25px;
+}
+
+.left-card h1 {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-transform: capitalize;
+}
+
 .left-card h1,
-p {
+.left-card p {
     margin-bottom: 50px;
     text-align: justify;
 }
@@ -32,7 +41,7 @@ p {
 } */
 
 .card-profile img {
-    width: 400px;
+    width: 450px;
 }
 
 .card-profile {
@@ -47,7 +56,10 @@ p {
 }
 
 .card-image img {
-    /* background-color: #FE4E30; */
+    background-color: #d8cecb95;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border: 1px solid #d8cecb76;
     filter: blur(10px);
     transition: all cubic-bezier(0.455, 0.03, 0.515, 0.955) .5s;
 }
@@ -104,4 +116,9 @@ a.my-cv {
 
 .social-media-container .sm-icon {
     width: 35px;
+}
+
+.container-teks-image {
+    margin: 20px 0px;
+    font-family: Arial, Helvetica, sans-serif;
 }
