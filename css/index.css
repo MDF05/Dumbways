@@ -1,0 +1,96 @@
+body {
+    background-color: #E3E7EB;
+}
+
+.parent-card {
+    display: flex;
+    justify-content: center;
+    padding: 60px 0px;
+}
+
+.card-profile {
+    display: flex;
+    width: 90%;
+    background-color: #FEFEFE;
+    padding: 50px;
+    box-sizing: border-box;
+}
+
+.left-card {
+    padding: 50px;
+}
+
+.left-card h1,
+p {
+    margin-bottom: 30px;
+    text-align: justify;
+}
+
+
+/* .left-card p {
+    margin-bottom: 20px;
+} */
+
+.card-profile img {
+    width: 400px;
+}
+
+.card-profile {
+    border-radius: 5px;
+}
+
+.card-image {
+    border-radius: 10px 10px 0px 0px;
+    overflow: hidden;
+    box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.256);
+}
+
+.card-image div {
+    display: inline-flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact {
+    display: flex;
+    text-decoration: none;
+    background-color: black;
+    color: white;
+    width: 100px;
+    height: 30px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+}
+
+img.unduh-image {
+    width: 20px;
+}
+
+
+/* a.contact-cv {} */
+
+.contact-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+a.my-cv {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    gap: 5px;
+}
+
+.social-media-container {
+    display: flex;
+    gap: 10px;
+}
+
+.social-media-container .sm-icon {
+    width: 50px;
+}
