@@ -25,13 +25,14 @@ body {
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.678);
+    box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.433);
 }
 
 form {
     display: flex;
     width: 100%;
     flex-direction: column;
-    padding: 0px 100px;
+    padding: 0px 50px;
     box-sizing: border-box;
     align-items: end;
 }
@@ -65,14 +66,32 @@ select {
     resize: none;
 }
 
-.form-container form input.submit {
-    background-color: black;
+.form-container form input.submit-mail,
+.form-container form .submit-gmail {
+    text-transform: capitalize;
     color: white;
     width: 100px;
     border-radius: 15px;
-    transition: all 1s ease;
+    transition: all .5s ease;
 }
 
-.form-container form .submit:hover {
-    background-color: green;
+.form-container form .submit-gmail {
+    background-color: #319F4F;
+}
+
+.form-container form .submit-mail {
+    background-color: #5EA1F7;
+}
+
+.form-container form .submit-gmail:hover,
+.form-container form .submit-mail:hover {
+    background-color: black;
+    border: 1px solid white;
+}
+
+.form-container form .submit-button {
+    margin-top: 20px;
+    flex-direction: row;
+    justify-content: end;
+    gap: 20px;
 }

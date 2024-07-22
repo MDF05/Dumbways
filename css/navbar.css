@@ -44,7 +44,7 @@ nav .left ul {
 }
 
 nav .left ul .home {
-    color: #FF9100
+    color: #FE4E30;
 }
 
 nav .left {
@@ -62,12 +62,16 @@ nav .right {
     padding: 10px 70px 0px 0px;
 }
 
-nav .right button {
+nav .right a {
     font-weight: bold;
     text-transform: capitalize;
-    background-color: #FF9100;
+    background-color: #FE4E30;
     height: 60%;
     width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
     color: white;
     border: none;
     border-radius: 5px;
