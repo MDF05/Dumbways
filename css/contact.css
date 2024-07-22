@@ -1,0 +1,97 @@
+.contact-container {
+    display: flex;
+    justify-content: center;
+    background-color: #DCE0E4;
+    margin: 50px 0px 0px;
+}
+
+body {
+    background-color: #DCE0E4;
+}
+
+.contact-container h1 {
+    margin: 20px 0px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+}
+
+.form-container {
+    width: 50vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 50px 0px 40px 0px;
+    background: rgba(248, 122, 83, 0.055);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.678);
+    box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.433);
+}
+
+form {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    padding: 0px 50px;
+    box-sizing: border-box;
+    align-items: end;
+}
+
+.form-container form div {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.form-container form label {
+    display: flex;
+    margin-bottom: 5px;
+}
+
+.form-container form input,
+select {
+    height: 30px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 3px;
+    box-shadow: 0px 0px 4px 2px rgba(0, 0, 0, 0.473);
+}
+
+.form-container form textarea {
+    box-shadow: 0px 0px 4px 2px rgba(0, 0, 0, 0.473);
+    border-radius: 3px;
+    border: none;
+    height: 100px;
+    margin-bottom: 10px;
+    resize: none;
+}
+
+.form-container form input.submit-mail,
+.form-container form .submit-gmail {
+    text-transform: capitalize;
+    color: white;
+    width: 100px;
+    border-radius: 15px;
+    transition: all .5s ease;
+}
+
+.form-container form .submit-gmail {
+    background-color: #319F4F;
+}
+
+.form-container form .submit-mail {
+    background-color: #5EA1F7;
+}
+
+.form-container form .submit-gmail:hover,
+.form-container form .submit-mail:hover {
+    background-color: black;
+    border: 1px solid white;
+}
+
+.form-container form .submit-button {
+    margin-top: 20px;
+    flex-direction: row;
+    justify-content: end;
+    gap: 20px;
+}

@@ -1,0 +1,117 @@
+.container-list-project {
+    background-color: #ffffff;
+}
+
+.list-project {
+    padding: 50px;
+}
+
+div.header-list-project {
+    margin: 0px 0px 50px;
+}
+
+div.body-card {
+    height: 100px;
+    overflow: hidden;
+}
+
+.header-list-project {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0px 0px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    text-transform: uppercase;
+}
+
+.header-list-project h1 {
+    filter: drop-shadow(-2px 4px 2px black);
+    -webkit-text-stroke: .5px white;
+    font-weight: bold;
+}
+
+div.card-project h1 {
+    background-color: red;
+}
+
+div.header-card a {
+    text-decoration: none;
+}
+
+div.header-card p {
+    color: grey;
+}
+
+div.body-card {
+    text-align: justify;
+}
+
+div.card-image {
+    display: flex;
+    width: 100%;
+}
+
+div.card-image a {
+    display: flex;
+    width: 100%;
+}
+
+div.card-image img {
+    border-radius: 10px;
+    width: 100%;
+    height: 200px;
+    box-shadow: 0px 0px 4px 2px rgba(0, 0, 0, 0.368);
+}
+
+div.icon-teknologi {
+    margin: 20px 0px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+div.icon-teknologi img {
+    width: 40px;
+}
+
+div.navigasi-card {
+    width: 100%;
+    display: flex;
+    gap: 10px;
+}
+
+div.navigasi-card button {
+    background-color: black;
+    width: 50%;
+    height: 25px;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.list-card {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    gap: 30px;
+}
+
+div.card-project {
+    background-color: #ffffff;
+    box-shadow: 0px 0px 4px 2px rgba(0, 0, 0, 0.368);
+    border: 1px solid white;
+    width: 360px;
+    border-radius: 5px;
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+.delete:hover {
+    background-color: red;
+}
+
+.edit:hover {
+    background-color: orange;
+}
