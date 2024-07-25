@@ -2,74 +2,90 @@
 
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
-        <link rel="stylesheet" href="./css/navbar.css" />
-        <link rel="stylesheet" href="./css/detailproject.css" />
-    </head>
 
-    <body>
-        <nav>
-            <div class="left">
-                <ul>
-                    <li class="li-image-dumbways">
-                        <img
-                            src="./assets/dumbways.png"
-                            alt="logo-dumbways"
-                            class="image-dumbways" />
-                    </li>
-                    <li>
-                        <a href="./index.html" class="home">home</a>
-                    </li>
-                    <li>
-                        <a href="./myproject.html">My Project</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="right">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/navbar.css" />
+    <link rel="stylesheet" href="./css/detailproject.css" />
+</head>
+
+<body>
+    <nav>
+        <div class="left">
+            <ul>
+                <li class="li-image-dumbways">
+                    <img src="./assets/dumbways.png" alt="logo-dumbways" class="image-dumbways" />
+                </li>
+                <li class="grup-1">
+                    <a href="./index.html" class="home">home</a>
+                </li>
+                <li class="grup-1">
+                    <a href="./myproject.html">My Project</a>
+                </li>
+            </ul>
+        </div>
+        <div class="right grup-1">
+            <a href="./contact.html">contact me</a>
+        </div>
+        <div class="container-hamburger">
+            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 24 24">
+                    <path d="M2 11H22V13H2zM2 5H22V7H2zM2 17H22V19H2z"></path>
+                </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 24 24" class="hidden">
+                    <path d="M11 0.7H13V23.3H11z" transform="rotate(-45.001 12 12)"></path>
+                    <path d="M0.7 11H23.3V13H0.7z" transform="rotate(-45.001 12 12)"></path>
+                </svg>
+        </div>
+    </nav>
+    <div class="container-nav-hamburger">
+        <ul>
+            <li>
+                <a href="./index.html">Home</a>
+            </li>
+            <li>
+                <a href="./myproject.html">My Project</a>
+            </li>
+            <li>
                 <a href="./contact.html">contact me</a>
+            </li>
+        </ul>
+    </div>
+    <div class="container-detail">
+        <div class="judul-detail">
+            <h1 class="name-project">Dumbways Web App</h1>
+        </div>
+        <div class="header-detail">
+            <div class="image-detail">
+                <img src="./assets/download.jfif" alt="" class="image-project" />
             </div>
-        </nav>
-
-        <div class="container-detail">
-            <div class="judul-detail">
-                <h1 class="name-project">Dumbways Web App</h1>
-            </div>
-            <div class="header-detail">
-                <div class="image-detail">
-                    <img src="./assets/download.jfif" alt="" class="image-project" />
-                </div>
-                <div class="other-detail">
-                    <div class="duration">
-                        <h2>Duration</h2>
-                        <div class="count-date">
-                            <img
-                                src="https://img.icons8.com/?size=100&id=85951&format=png&color=000000"
-                                alt="icon-calculator" />
-                            <span>
+            <div class="other-detail">
+                <div class="duration">
+                    <h2>Duration</h2>
+                    <div class="count-date">
+                        <img src="https://img.icons8.com/?size=100&id=85951&format=png&color=000000" alt="icon-calculator" />
+                        <span>
                                 <span class="start-date">12 jan 2021</span> -
-                                <span class="end-date">11 Feb 2021</span></span
-                            >
-                        </div>
-                        <div class="count-duration">
-                            <img
-                                src="https://img.icons8.com/?size=100&id=16153&format=png&color=000000"
-                                alt="icon-duration" />
-                            <span> <span class="duration-project">1</span> month</span>
-                        </div>
+                        <span class="end-date">11 Feb 2021</span></span>
                     </div>
-                    <div class="technologis">
-                        <h2>Technologies</h2>
-                        <div class="icon-teknologi"></div>
+                    <div class="count-duration">
+                        <img src="https://img.icons8.com/?size=100&id=16153&format=png&color=000000" alt="icon-duration" />
+                        <span> <span class="duration-project">1</span> month</span>
                     </div>
                 </div>
-            </div>
-            <div class="body-detail">
-                <p class="description-project"></p>
+                <div class="technologis">
+                    <h2>Technologies</h2>
+                    <div class="icon-teknologi"></div>
+                </div>
             </div>
         </div>
-        <script src="./js/detail.js"></script>
-    </body>
+        <div class="body-detail">
+            <p class="description-project"></p>
+        </div>
+    </div>
+    <script src="./js/detail.js"></script>
+    <script src="./js/nav.js"></script>
+</body>
+
 </html>

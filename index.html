@@ -6,8 +6,8 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Document</title>
-        <link rel="stylesheet" href="./css/navbar.css" />
-        <link rel="stylesheet" href="./css/index.css" />
+        <link rel="stylesheet" href="./assets/css/navbar.css" />
+        <link rel="stylesheet" href="./assets/css/index.css" />
     </head>
 
     <body>
@@ -16,22 +16,63 @@
                 <ul>
                     <li class="li-image-dumbways">
                         <img
-                            src="./assets/dumbways.png"
+                            src="./assets/image/dumbways.png"
                             alt="logo-dumbways"
                             class="image-dumbways" />
                     </li>
-                    <li>
+                    <li class="grup-1">
                         <a href="./index.html" class="home">home</a>
                     </li>
-                    <li>
+                    <li class="grup-1">
                         <a href="./myproject.html">My Project</a>
+                    </li>
+                    <li class="grup-1">
+                        <a href="./testimonial.html">Testimonial</a>
                     </li>
                 </ul>
             </div>
-            <div class="right">
+            <div class="right grup-1">
                 <a href="./contact.html">contact me</a>
             </div>
+            <div class="container-hamburger">
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    x="0px"
+                    y="0px"
+                    width="100"
+                    height="100"
+                    viewBox="0 0 24 24">
+                    <path d="M2 11H22V13H2zM2 5H22V7H2zM2 17H22V19H2z"></path>
+                </svg>
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    x="0px"
+                    y="0px"
+                    width="100"
+                    height="100"
+                    viewBox="0 0 24 24"
+                    class="hidden">
+                    <path d="M11 0.7H13V23.3H11z" transform="rotate(-45.001 12 12)"></path>
+                    <path d="M0.7 11H23.3V13H0.7z" transform="rotate(-45.001 12 12)"></path>
+                </svg>
+            </div>
         </nav>
+        <div class="container-nav-hamburger">
+            <ul>
+                <li>
+                    <a href="./index.html">Home</a>
+                </li>
+                <li>
+                    <a href="./myproject.html">My Project</a>
+                </li>
+                <li>
+                    <a href="./contact.html">Contact Me</a>
+                </li>
+                <li>
+                    <a href="./testimonial.html">Testimonial</a>
+                </li>
+            </ul>
+        </div>
 
         <div class="parent-card">
             <div class="card-profile">
@@ -49,7 +90,10 @@
 
                     <div class="contact-container">
                         <a href="./contact.html" class="contact">contact me</a>
-                        <a href="./assets/my-cv.pdf" download="Muhammad-Dava-FAhreza" class="my-cv">
+                        <a
+                            href="./assets/pdf/my-cv.pdf"
+                            download="Muhammad-Dava-FAhreza"
+                            class="my-cv">
                             download my cv
                             <img
                                 src="https://img.icons8.com/?size=100&id=hB6XkFbI9fP4&format=png&color=000000"
@@ -90,7 +134,7 @@
                 </div>
                 <div class="right-card">
                     <div class="card-image">
-                        <img src="./assets/profile.png" alt="profile" />
+                        <img src="./assets/image/profile.png" alt="profile" />
                         <div class="container-teks-image">
                             <h1>Muhammad Dava Fahreza</h1>
                             <p>FullStack Developer</p>
@@ -99,5 +143,6 @@
                 </div>
             </div>
         </div>
+        <script src="./assets/js/nav.js"></script>
     </body>
 </html>

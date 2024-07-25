@@ -44,7 +44,8 @@ function addProject(event) {
             checkNode,
             checkReact,
             checkJavascript,
-            checkSocket
+            checkSocket,
+            postAt: new Date()
         }
 
         dataForm.push(form)
@@ -116,6 +117,12 @@ function setViewProject() {
                     
                     ${data.checkSocket ? `<img src="https://socket.io/images/logo.svg" alt="icon-socket" />` : ""}
                     </div>
+                    <div class="date-post"> 
+                        <div>
+                            <div class="post-at">${datePostConvert(data.postAt)}</div>
+                            <div> ${calculateAgePost(data.postAt)} </div>
+                        </div>
+                    </div>
                     <div class="navigasi-card">
                         <button type="button" list=${index} class="edit">edit</button>
                         <button type="button" list=${index} class="delete">delete</button>
@@ -126,6 +133,41 @@ function setViewProject() {
 
         return true
     })
+}
+
+function datePostConvert(datePost) {
+    const ClasssDate = new Date(datePost)
+
+    const nameOfMonth = [
+        "Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"
+    ]
+
+
+    return `${ClasssDate.getDay()} ${nameOfMonth[ClasssDate.getMonth()]} ${ClasssDate.getFullYear()}`
+}
+
+function calculateAgePost(datePost) {
+    const ClassDatePost = new Date(datePost)
+    const ClassNowDate = new Date()
+
+    const distanceDate = ClassNowDate - ClassDatePost
+
+    const day = 24 
+    const secondInHour = 3600
+
+    const distanceDay = Math.floor(distanceDate / 1000 / 60 / 60 / 24)
+    const distanceHours = Math.floor(distanceDate / 1000 / 60 / 60 )
+    const distanceMinute = Math.floor(distanceDate / 1000 / 60  )
+    const distanceYears = Math.floor(distanceDay / 365)
+
+    let agePost;
+    if (distanceYears > 0) agePost = `${distanceYears} years ago`
+    else if ( distanceDay > 0) agePost = `${distanceDay} day ago`
+    else if ( distanceHours > 0 ) agePost= `${distanceHours} hours ago`
+    else if (distanceMinute > 0) agePost  = `${distanceMinute} minute ago`
+    else agePost = `now`
+
+    return agePost
 }
 
 document.body.addEventListener("click", (element) => {

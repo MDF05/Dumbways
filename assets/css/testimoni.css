@@ -1,0 +1,55 @@
+body {
+  background-color: #DCE0E4;
+}
+
+.container-testimoni {
+  padding: 60px 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+.container-testimoni .judul-testimoni {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  margin: 0px 0px 20px;
+  text-transform: uppercase;
+}
+.container-testimoni .list-testimoni {
+  width: 100%;
+  padding: 15px;
+  box-sizing: border-box;
+  display: grid;
+  gap: 35px;
+  grid-template-columns: repeat(3, 30%);
+}
+.container-testimoni .testimoni {
+  padding: 10px;
+  box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.493);
+  border: 1px solid white;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  box-sizing: border-box;
+}
+.container-testimoni .testimoni .header img {
+  width: 100%;
+  height: 150px;
+}
+.container-testimoni .testimoni .body p {
+  background-color: transparent;
+}
+.container-testimoni .testimoni .body h4 {
+  text-align: end;
+}
+.container-testimoni .testimoni .body img {
+  width: 20px;
+}
+.container-testimoni .testimoni .rating-star {
+  display: flex;
+  justify-content: end;
+  background-color: red;
+}
+.container-testimoni .testimoni .footer * {
+  color: grey;
+}/*# sourceMappingURL=testimoni.css.map */
