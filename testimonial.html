@@ -6,8 +6,8 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Document</title>
-        <link rel="stylesheet" href="./assets/css/navbar.css" />
         <link rel="stylesheet" href="./assets/css/testimoni.css" />
+        <link rel="stylesheet" href="./assets/css/navbar.css" />
     </head>
     <body>
         <nav>
@@ -19,18 +19,18 @@
                             alt="logo-dumbways"
                             class="image-dumbways" />
                     </li>
-                    <li class="grup-1">
+                    <li class="grup-1" id="grup-hidden">
                         <a href="./index.html" class="home">home</a>
                     </li>
-                    <li class="grup-1">
+                    <li class="grup-1" id="grup-hidden">
                         <a href="./myproject.html">My Project</a>
                     </li>
-                    <li class="grup-1">
+                    <li class="grup-1" id="grup-hidden">
                         <a href="./testimonial.html">Testimonial</a>
                     </li>
                 </ul>
             </div>
-            <div class="right grup-1">
+            <div class="right grup-1" id="grup-hidden">
                 <a href="./contact.html">contact me</a>
             </div>
             <div class="container-hamburger">
@@ -74,83 +74,124 @@
         </div>
 
         <div class="container-testimoni">
+            <div class="container-form-testimoni">
+                <form>
+                    <div class="add-testimoni-container">
+                        <h1 class="add-testimoni-title">Add Testimoni</h1>
+                    </div>
+                    <div>
+                        <label for="name">name</label>
+                        <input type="text" name="name" id="name" />
+                    </div>
+                    <div>
+                        <label for="deskripsi">deskripsi</label>
+                        <textarea type="text" name="deskripsi" id="deskripsi"> </textarea>
+                    </div>
+                    <div>
+                        <label for="input-file">upload gambar </label>
+                        <input type="file" name="input-file" id="input-file" />
+                    </div>
+                    <div class="container-rating">
+                        <div>
+                            <h4>berikan rating</h4>
+                        </div>
+                        <div class="list-rating">
+                            <div class="div-star">
+                                <label for="star-1">
+                                    <img
+                                        src="https://img.icons8.com/?size=100&id=8ggStxqyboK5&format=png&color=000000"
+                                        alt="baru"
+                                        class="star" />
+                                </label>
+                                <input
+                                    type="radio"
+                                    name="star"
+                                    id="star-1"
+                                    hidden
+                                    class="star-count"
+                                    star="1"
+                                    value="1" />
+                            </div>
+                            <div class="div-star">
+                                <label for="star-2">
+                                    <img
+                                        src="https://img.icons8.com/?size=100&id=8ggStxqyboK5&format=png&color=000000"
+                                        alt="baru"
+                                        class="star" />
+                                </label>
+                                <input
+                                    type="radio"
+                                    name="star"
+                                    id="star-2"
+                                    hidden
+                                    class="star-count"
+                                    star="2"
+                                    value="2" />
+                            </div>
+                            <div class="div-star">
+                                <label for="star-3">
+                                    <img
+                                        src="https://img.icons8.com/?size=100&id=8ggStxqyboK5&format=png&color=000000"
+                                        alt="baru"
+                                        class="star" />
+                                </label>
+                                <input
+                                    type="radio"
+                                    name="star"
+                                    id="star-3"
+                                    hidden
+                                    class="star-count"
+                                    star="3"
+                                    value="3" />
+                            </div>
+                            <div class="div-star">
+                                <label for="star-4">
+                                    <img
+                                        src="https://img.icons8.com/?size=100&id=8ggStxqyboK5&format=png&color=000000"
+                                        alt="baru"
+                                        class="star" />
+                                </label>
+                                <input
+                                    type="radio"
+                                    name="star"
+                                    id="star-4"
+                                    class="star-count"
+                                    hidden
+                                    star="4"
+                                    value="4" />
+                            </div>
+                            <div class="div-star">
+                                <label for="star-5">
+                                    <img
+                                        src="https://img.icons8.com/?size=100&id=8ggStxqyboK5&format=png&color=000000"
+                                        alt="baru"
+                                        class="star" />
+                                </label>
+                                <input
+                                    type="radio"
+                                    name="star"
+                                    id="star-5"
+                                    hidden
+                                    class="star-count"
+                                    star="5"
+                                    value="5" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="submit-container">
+                        <input type="submit" value="submit" />
+                    </div>
+                </form>
+            </div>
+
             <div class="judul-testimoni">
-                <h1>MY Testimoni</h1>
+                <h1>list Testimoni</h1>
             </div>
-            <div class="list-testimoni">
-                <div class="testimoni">
-                    <div class="header">
-                        <img src="./assets/image/ronaldo-2.jfif" alt="" />
-                    </div>
-                    <div class="body">
-                        <div>
-                            <p class="description">"biasa aja bang"</p>
-                            <h4 class="judul">-Critiano Ronaldo</h4>
-                        </div>
-                        <div class="rating-star">
-                            <span class="teks-star">5</span>
-                            <span class="span-star">
-                                <img
-                                    src="https://img.icons8.com/?size=100&id=60003&format=png&color=000000"
-                                    alt="baru"
-                                    class="star" />
-                            </span>
-                        </div>
-                    </div>
-                    <div class="footer">
-                        <div class="post-date">post : 24-juli-2024</div>
-                        <div class="age-post">3 days ago</div>
-                    </div>
-                </div>
-                <div class="testimoni">
-                    <div class="header">
-                        <img src="./assets/image/ronaldo-2.jfif" alt="" />
-                    </div>
-                    <div class="body">
-                        <div>
-                            <p class="description">"biasa aja bang"</p>
-                            <h4 class="judul">-Critiano Ronaldo</h4>
-                        </div>
-                        <div class="rating-star">
-                            <span class="teks-star">2</span>
-                            <span class="span-star">
-                                <img
-                                    src="https://img.icons8.com/?size=100&id=60003&format=png&color=000000"
-                                    alt="baru"
-                                    class="star" />
-                            </span>
-                        </div>
-                    </div>
-                    <div class="footer">
-                        <div class="post-date">post : 24-juli-2024</div>
-                        <div class="age-post">3 days ago</div>
-                    </div>
-                </div>
-                <div class="testimoni">
-                    <div class="header">
-                        <img src="./assets/image/ronaldo-2.jfif" alt="" />
-                    </div>
-                    <div class="body">
-                        <div>
-                            <p class="description">"biasa aja bang"</p>
-                            <h4 class="judul">-Critiano Ronaldo</h4>
-                        </div>
-                        <div class="rating-star">
-                            <span class="teks-star">3</span>
-                            <span class="span-star">
-                                <img
-                                    src="https://img.icons8.com/?size=100&id=60003&format=png&color=000000"
-                                    alt="baru"
-                                    class="star" />
-                            </span>
-                        </div>
-                    </div>
-                    <div class="footer">
-                        <div class="post-date">post : 24-juli-2024</div>
-                        <div class="age-post">3 days ago</div>
-                    </div>
-                </div>
-            </div>
+            <div class="list-testimoni"></div>
         </div>
+
+        <script src="./assets/js/nav.js"></script>
+        <script src="./assets/js/testimonial.js"></script>
+        <script src="./assets/js/OOP-listTestimonial.js"></script>
     </body>
 </html>

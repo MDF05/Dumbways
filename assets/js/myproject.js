@@ -152,9 +152,6 @@ function calculateAgePost(datePost) {
 
     const distanceDate = ClassNowDate - ClassDatePost
 
-    const day = 24 
-    const secondInHour = 3600
-
     const distanceDay = Math.floor(distanceDate / 1000 / 60 / 60 / 24)
     const distanceHours = Math.floor(distanceDate / 1000 / 60 / 60 )
     const distanceMinute = Math.floor(distanceDate / 1000 / 60  )

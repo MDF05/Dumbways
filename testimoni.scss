@@ -41,8 +41,11 @@ body {
         }
 
         .body {
+
             p {
-                background-color: transparent;
+                width: 100%;
+                height: 100px;
+                overflow: hidden;
             }
 
             h4 {
@@ -56,12 +59,124 @@ body {
 
         .rating-star {
             display: flex;
+            align-items: center;
             justify-content: end;
+            gap: 3px;
         }
 
         .footer * {
             color: grey
         }
+
+    }
+}
+
+
+.container-form-testimoni {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0px 70px;
+
+    .add-testimoni-container {
+        text-align: center;
+        margin: 10px 0px;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+        align-items: center;
+        box-sizing: border-box;
+        padding: 40px;
+        background-color: #d8cecb95;
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid white;
+        box-shadow: 0px 0px 6px 2px rgba(0, 0, 0, 0.507);
+
+        div {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            margin-bottom: 20px;
+
+            * {
+                text-transform: capitalize;
+            }
+
+            &:last-child {
+                flex-direction: row;
+
+                img {
+                    transition: all .5s ease-in-out;
+                    width: 50px;
+                    filter: grayscale(100%) drop-shadow(3px -3px 2px white);
+                }
+            }
+        }
+
+        input,
+        textarea {
+            border-radius: 3px;
+        }
+
+        input[type="text"] {
+            height: 30px;
+        }
+
+        input[type="file"] {
+            padding: 10px;
+        }
+
+        textarea {
+            resize: none;
+            height: 100px;
+        }
+
+        input[type="file"] {
+            background-color: white;
+            border: 1px solid black;
+        }
+
+        input[type="submit"] {
+            width: 100px;
+            border: 1px solid white;
+            padding: 5px 0px;
+            border-radius: 15px;
+            background-color: black;
+            color: white;
+            box-shadow: 0px 0px 4px 1px black;
+
+        }
+
+        div.submit-container {
+            justify-content: end;
+        }
+
+        div.container-rating {
+            display: flex;
+            flex-direction: column;
+
+
+            div {
+                margin: 0px;
+            }
+
+            .list-rating {
+                display: flex;
+                justify-content: start;
+                gap: 10px;
+
+                .div-star {
+                    width: max-content;
+                }
+            }
+        }
+
 
     }
 }
