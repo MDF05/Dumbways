@@ -1,11 +1,12 @@
+/** @format */
+
 const form = document.querySelector("form")
 containerTestimoni = document.querySelector(".list-testimoni")
 
 let listTestimoni = JSON.parse(localStorage.getItem("listTestimoni")) || []
 
-
 class Testimoni {
-    constructor (name,deskripsi,imageUrl,datePost, countStar) {
+    constructor(name, deskripsi, imageUrl, datePost, countStar) {
         this.author = name
         this.message = deskripsi
         this.date = datePost
@@ -14,7 +15,20 @@ class Testimoni {
     }
 
     datePostConvert() {
-        let nameOfMonth = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"]
+        let nameOfMonth = [
+            "Januari",
+            "Februari",
+            "Maret",
+            "April",
+            "Mei",
+            "Juni",
+            "Juli",
+            "Agustus",
+            "September",
+            "Oktober",
+            "November",
+            "Desember",
+        ]
 
         const DatePost = new Date(this.date)
         const day = DatePost.getDay()
@@ -28,20 +42,18 @@ class Testimoni {
         const DateNow = new Date()
         const distanceDate = DateNow - this.date
 
-
         const distanceYear = Math.floor(distanceDate / 1000 / 60 / 60 / 24 / 365)
         const distanceDay = Math.floor(distanceDate / 1000 / 60 / 60 / 24)
-        const distanceHour = Math.floor(distanceDate / 1000 / 60 / 60 )
-        const distanceMinute = Math.floor(distanceDate / 1000 / 60 )
+        const distanceHour = Math.floor(distanceDate / 1000 / 60 / 60)
+        const distanceMinute = Math.floor(distanceDate / 1000 / 60)
         const distanceSecond = Math.floor(distanceDate / 1000)
 
-        if(distanceYear > 0) return `${distanceYear} Years Ago`
-         else if (distanceDay > 0) return `${distanceDay} Days Ago`
-         else if (distanceHour > 0) return `${distanceHour} Hours Ago`
-         else if (distanceMinute > 0) return `${distanceMinute} minute Ago`
-         else if (distanceSecond > 0) return `${distanceSecond} Second Ago`
-         else return `just now` 
-
+        if (distanceYear > 0) return `${distanceYear} Years Ago`
+        else if (distanceDay > 0) return `${distanceDay} Days Ago`
+        else if (distanceHour > 0) return `${distanceHour} Hours Ago`
+        else if (distanceMinute > 0) return `${distanceMinute} minute Ago`
+        else if (distanceSecond > 0) return `${distanceSecond} Second Ago`
+        else return `just now`
     }
 
     elementHtml() {
@@ -74,27 +86,30 @@ class Testimoni {
     }
 }
 
-
-if(listTestimoni.length !== 0) {
-    listTestimoni = listTestimoni.map(testimoni => {
-        return new Testimoni(testimoni.author,testimoni.message,testimoni.url,testimoni.date,testimoni.star)
+if (listTestimoni.length !== 0) {
+    listTestimoni = listTestimoni.map((testimoni) => {
+        return new Testimoni(
+            testimoni.author,
+            testimoni.message,
+            testimoni.url,
+            testimoni.date,
+            testimoni.star,
+        )
     })
 
     renderTestimoni()
 }
 
-
-
-
-
 function renderTestimoni() {
     containerTestimoni.innerHTML = " "
-    listTestimoni.forEach(form => {
+    listTestimoni.forEach((form) => {
         containerTestimoni.innerHTML += form.elementHtml()
     })
 }
 
-form.addEventListener("submit", event => {onSubmit(event)})
+form.addEventListener("submit", (event) => {
+    onSubmit(event)
+})
 async function onSubmit(event) {
     event.preventDefault()
     const inputName = document.querySelector("#name").value
@@ -103,25 +118,29 @@ async function onSubmit(event) {
     const checkedStar = document.querySelector("input[name='star']:checked")?.value
 
     let alertMessage = ""
-    if(inputName == "") alertMessage += `tolong isikan name terlebih dahulu \n`
-    if(inputDeskripsi == " ") alertMessage += `tolong isikan deskripsi terlebih dahulu \n`
-    if(inputImage == undefined) alertMessage += `tolong upload gambar terlebih dahulu \n`
-    if(checkedStar == undefined) alertMessage += `tolong berikan rating terlebih dahulu`
+    if (inputName == "") alertMessage += `tolong isikan name terlebih dahulu \n`
+    if (inputDeskripsi == " ") alertMessage += `tolong isikan deskripsi terlebih dahulu \n`
+    if (inputImage == undefined) alertMessage += `tolong upload gambar terlebih dahulu \n`
+    if (checkedStar == undefined) alertMessage += `tolong berikan rating terlebih dahulu`
 
     if (alertMessage.length !== 0) return alert(alertMessage)
 
     try {
         const imageURl = await convertUrl(inputImage)
-        let ClassTestimoni = new Testimoni(inputName,inputDeskripsi,imageURl,new Date(),checkedStar)
+        let ClassTestimoni = new Testimoni(
+            inputName,
+            inputDeskripsi,
+            imageURl,
+            new Date(),
+            checkedStar,
+        )
         listTestimoni.push(ClassTestimoni)
         localStorage.setItem("listTestimoni", JSON.stringify(listTestimoni))
-        return renderTestimoni() 
-    }catch(error) {
+        return renderTestimoni()
+    } catch (error) {
         return false
     }
-
-} 
-
+}
 
 function convertUrl(url) {
     const ReaderUrl = new FileReader()
@@ -135,6 +154,5 @@ function convertUrl(url) {
         ReaderUrl.onload = () => {
             resolve(ReaderUrl.result)
         }
-    })   
+    })
 }
-
