@@ -108,7 +108,7 @@ function postDataTestimoni(data) {
 
     return new Promise((resolve, reject) => {
         const Ajax = new XMLHttpRequest()
-        Ajax.open("POST", "http://localhost:3000/testimoni")
+        Ajax.open("POST", "https://dumbways-backend.vercel.app/testimoni")
 
         Ajax.onload = function () {
             const response = JSON.parse(Ajax.responseText)
@@ -129,7 +129,7 @@ function getDataTestimoni() {
     return new Promise((resolve, reject) => {
         try {
             const Ajax = new XMLHttpRequest()
-            Ajax.open("GET", "http://localhost:3000/testimoni")
+            Ajax.open("GET", "https://dumbways-backend.vercel.app/testimoni")
 
             Ajax.onload = () => {
                 const response = JSON.parse(Ajax.responseText)
@@ -148,7 +148,7 @@ function deleteTestimoni(id, index) {
     return new Promise((resolve, reject) => {
         try {
             const Ajax = new XMLHttpRequest()
-            Ajax.open("DELETE", `http://localhost:3000/testimoni/${id}`)
+            Ajax.open("DELETE", `https://dumbways-backend.vercel.app/testimoni/${id}`)
 
             Ajax.onload = () => {
                 const response = JSON.parse(Ajax.responseText)
