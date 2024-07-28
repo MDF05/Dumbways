@@ -1,0 +1,276 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="stylesheet" href="./assets/css/testimoni.css" />
+        <link rel="stylesheet" href="./assets/css/navbar.css" />
+    </head>
+
+    <body>
+        <nav>
+            <div class="left">
+                <ul>
+                    <li class="li-image-dumbways">
+                        <img
+                            src="./assets/image/dumbways.png"
+                            alt="logo-dumbways"
+                            class="image-dumbways" />
+                    </li>
+                    <li class="grup-1" id="grup-hidden">
+                        <a href="./index.html" class="home">home</a>
+                    </li>
+                    <li class="grup-1" id="grup-hidden">
+                        <a href="./myproject.html">My Project</a>
+                    </li>
+                    <li class="grup-1" id="grup-hidden">
+                        <a href="./testimonial.html">Testimonial</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="right grup-1" id="grup-hidden">
+                <a href="./contact.html">contact me</a>
+            </div>
+            <div class="container-hamburger">
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    x="0px"
+                    y="0px"
+                    width="100"
+                    height="100"
+                    viewBox="0 0 24 24">
+                    <path d="M2 11H22V13H2zM2 5H22V7H2zM2 17H22V19H2z"></path>
+                </svg>
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    x="0px"
+                    y="0px"
+                    width="100"
+                    height="100"
+                    viewBox="0 0 24 24"
+                    class="hidden">
+                    <path d="M11 0.7H13V23.3H11z" transform="rotate(-45.001 12 12)"></path>
+                    <path d="M0.7 11H23.3V13H0.7z" transform="rotate(-45.001 12 12)"></path>
+                </svg>
+            </div>
+        </nav>
+        <div class="container-nav-hamburger">
+            <ul>
+                <li>
+                    <a href="./index.html">Home</a>
+                </li>
+                <li>
+                    <a href="./myproject.html">My Project</a>
+                </li>
+                <li>
+                    <a href="./contact.html">Contact Me</a>
+                </li>
+                <li>
+                    <a href="./testimonial.html">Testimonial</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="container-testimoni">
+            <div class="container-form-testimoni">
+                <form>
+                    <div class="add-testimoni-container">
+                        <h1 class="add-testimoni-title">Add Testimoni</h1>
+                    </div>
+                    <div>
+                        <label for="name">name</label>
+                        <input type="text" name="name" id="name" />
+                    </div>
+                    <div>
+                        <label for="deskripsi">deskripsi</label>
+                        <textarea type="text" name="deskripsi" id="deskripsi"> </textarea>
+                    </div>
+                    <div>
+                        <label for="input-file">upload gambar </label>
+                        <input type="file" name="input-file" id="input-file" />
+                    </div>
+                    <div class="container-rating">
+                        <div>
+                            <h4>berikan rating</h4>
+                        </div>
+                        <div class="list-rating">
+                            <div class="div-star">
+                                <label for="star-1">
+                                    <img
+                                        src="https://img.icons8.com/?size=100&id=8ggStxqyboK5&format=png&color=000000"
+                                        alt="baru"
+                                        class="star" />
+                                </label>
+                                <input
+                                    type="radio"
+                                    name="star"
+                                    id="star-1"
+                                    hidden
+                                    class="star-count"
+                                    star="1"
+                                    value="1" />
+                            </div>
+                            <div class="div-star">
+                                <label for="star-2">
+                                    <img
+                                        src="https://img.icons8.com/?size=100&id=8ggStxqyboK5&format=png&color=000000"
+                                        alt="baru"
+                                        class="star" />
+                                </label>
+                                <input
+                                    type="radio"
+                                    name="star"
+                                    id="star-2"
+                                    hidden
+                                    class="star-count"
+                                    star="2"
+                                    value="2" />
+                            </div>
+                            <div class="div-star">
+                                <label for="star-3">
+                                    <img
+                                        src="https://img.icons8.com/?size=100&id=8ggStxqyboK5&format=png&color=000000"
+                                        alt="baru"
+                                        class="star" />
+                                </label>
+                                <input
+                                    type="radio"
+                                    name="star"
+                                    id="star-3"
+                                    hidden
+                                    class="star-count"
+                                    star="3"
+                                    value="3" />
+                            </div>
+                            <div class="div-star">
+                                <label for="star-4">
+                                    <img
+                                        src="https://img.icons8.com/?size=100&id=8ggStxqyboK5&format=png&color=000000"
+                                        alt="baru"
+                                        class="star" />
+                                </label>
+                                <input
+                                    type="radio"
+                                    name="star"
+                                    id="star-4"
+                                    class="star-count"
+                                    hidden
+                                    star="4"
+                                    value="4" />
+                            </div>
+                            <div class="div-star">
+                                <label for="star-5">
+                                    <img
+                                        src="https://img.icons8.com/?size=100&id=8ggStxqyboK5&format=png&color=000000"
+                                        alt="baru"
+                                        class="star" />
+                                </label>
+                                <input
+                                    type="radio"
+                                    name="star"
+                                    id="star-5"
+                                    hidden
+                                    class="star-count"
+                                    star="5"
+                                    value="5" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="submit-container">
+                        <input type="submit" value="submit" class="add-testimoni" />
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="container-list-rating">
+            <div class="judul-testimoni">
+                <h1>list Testimoni</h1>
+            </div>
+            <div class="container-rating-star">
+                <h2>Rating By Star</h2>
+                <div class="rating-star">
+                    <span class="list-star">
+                        <span
+                            ><input
+                                type="radio"
+                                class="filter-star"
+                                id="star-rating-1"
+                                value="1"
+                                name="filter-star-rating" />
+                            <label class="label-reset" for="star-rating-1"
+                                ><img
+                                    src="https://img.icons8.com/?size=100&id=8ggStxqyboK5&format=png&color=000000"
+                                    alt="filter-rating-by-star"
+                                    class="filter-star-rating" /></label></span
+                        ><span
+                            ><input
+                                type="radio"
+                                class="filter-star"
+                                id="star-rating-2"
+                                value="2"
+                                name="filter-star-rating" /><label
+                                class="label-reset"
+                                for="star-rating-2"
+                                ><img
+                                    src="https://img.icons8.com/?size=100&id=8ggStxqyboK5&format=png&color=000000"
+                                    alt="filter-rating-by-star"
+                                    class="filter-star-rating" /></label></span
+                        ><span
+                            ><input
+                                type="radio"
+                                class="filter-star"
+                                id="star-rating-3"
+                                value="3"
+                                name="filter-star-rating" /><label
+                                class="label-reset"
+                                for="star-rating-3"
+                                ><img
+                                    src="https://img.icons8.com/?size=100&id=8ggStxqyboK5&format=png&color=000000"
+                                    alt="filter-rating-by-star"
+                                    class="filter-star-rating" /></label></span
+                        ><span
+                            ><input
+                                type="radio"
+                                class="filter-star"
+                                id="star-rating-4"
+                                value="4"
+                                name="filter-star-rating" /><label
+                                class="label-reset"
+                                for="star-rating-4"
+                                ><img
+                                    src="https://img.icons8.com/?size=100&id=8ggStxqyboK5&format=png&color=000000"
+                                    alt="filter-rating-by-star"
+                                    class="filter-star-rating" /></label></span
+                        ><span
+                            ><input
+                                type="radio"
+                                class="filter-star"
+                                id="star-rating-5"
+                                value="5"
+                                name="filter-star-rating" /><label
+                                class="label-reset"
+                                for="star-rating-5"
+                                ><img
+                                    src="https://img.icons8.com/?size=100&id=8ggStxqyboK5&format=png&color=000000"
+                                    alt="filter-rating-by-star"
+                                    class="filter-star-rating" /></label
+                        ></span>
+                    </span>
+                    <span class="all-star">
+                        <label for="reset-rating">All Rating</label>
+                        <input type="radio" name="filter-star-rating" value="0" id="reset-rating" />
+                    </span>
+                </div>
+            </div>
+            <div class="list-testimoni"></div>
+        </div>
+
+        <script src="./assets/js/nav.js"></script>
+        <script src="./assets/js/testimonial.js"></script>
+        <!-- <script src="./assets/js/OOP-listTestimonial.js"></script> -->
+    </body>
+</html>

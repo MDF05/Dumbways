@@ -95,3 +95,20 @@ select {
     justify-content: end;
     gap: 20px;
 }
+
+
+@media (max-width : 768px) {
+    .form-container {
+        width: 80%;
+    }
+}
+
+@media (max-width : 576px) {
+    .form-container {
+        width: 100%;
+    }
+
+    form {
+        padding: 0px 15px;
+    }
+}

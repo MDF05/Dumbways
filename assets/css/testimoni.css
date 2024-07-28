@@ -1,0 +1,270 @@
+body {
+  background-color: #DCE0E4;
+}
+
+.container-testimoni {
+  padding: 60px 0px 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.container-form-testimoni {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0px 70px;
+}
+.container-form-testimoni .add-testimoni-container {
+  text-align: center;
+  margin: 10px 0px;
+}
+.container-form-testimoni form {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 40px;
+  background-color: rgba(216, 206, 203, 0.5843137255);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid white;
+  box-shadow: 0px 0px 6px 2px rgba(0, 0, 0, 0.507);
+}
+.container-form-testimoni form div {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 20px;
+}
+.container-form-testimoni form div * {
+  text-transform: capitalize;
+}
+.container-form-testimoni form div:last-child {
+  flex-direction: row;
+}
+.container-form-testimoni form div:last-child img {
+  transition: all 0.5s ease-in-out;
+  width: 50px;
+  filter: grayscale(100%) drop-shadow(-1px -1px white) drop-shadow(1px 1px white);
+}
+.container-form-testimoni form input,
+.container-form-testimoni form textarea {
+  border-radius: 3px;
+}
+.container-form-testimoni form input[type=text] {
+  height: 30px;
+}
+.container-form-testimoni form input[type=file] {
+  padding: 10px;
+}
+.container-form-testimoni form textarea {
+  resize: none;
+  height: 100px;
+}
+.container-form-testimoni form input[type=file] {
+  background-color: white;
+  border: 1px solid black;
+}
+.container-form-testimoni form input[type=submit] {
+  width: 100px;
+  border: 1px solid white;
+  padding: 5px 0px;
+  border-radius: 15px;
+  background-color: black;
+  color: white;
+  box-shadow: 0px 0px 4px 1px black;
+}
+.container-form-testimoni form div.submit-container {
+  justify-content: end;
+}
+.container-form-testimoni form div.container-rating {
+  display: flex;
+  flex-direction: column;
+}
+.container-form-testimoni form div.container-rating div {
+  margin: 0px;
+}
+.container-form-testimoni form div.container-rating .list-rating {
+  display: flex;
+  justify-content: start;
+  gap: 10px;
+}
+.container-form-testimoni form div.container-rating .list-rating .div-star {
+  width: -moz-max-content;
+  width: max-content;
+}
+
+.container-list-rating {
+  background-color: white;
+  padding: 40px 0px 100px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.container-list-rating .container-rating-card .star-yellow-card {
+  filter: grayscale(0%);
+}
+.container-list-rating .container-rating-card .star-grey-card {
+  filter: grayscale(100%);
+}
+.container-list-rating .judul-testimoni {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  margin: 0px 0px 20px;
+  text-transform: uppercase;
+}
+.container-list-rating .list-testimoni {
+  width: 100%;
+  padding: 15px;
+  box-sizing: border-box;
+  display: grid;
+  gap: 35px;
+  grid-template-columns: repeat(3, 30%);
+}
+.container-list-rating .testimoni {
+  padding: 10px;
+  box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.493);
+  border: 1px solid white;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  box-sizing: border-box;
+}
+.container-list-rating .testimoni .header img {
+  width: 100%;
+  height: 150px;
+}
+.container-list-rating .testimoni .body p {
+  width: 100%;
+  height: 100px;
+  overflow: hidden;
+}
+.container-list-rating .testimoni .body h4 {
+  text-align: end;
+}
+.container-list-rating .testimoni .body img {
+  width: 20px;
+}
+.container-list-rating .testimoni .rating-star {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  gap: 3px;
+}
+.container-list-rating .testimoni .navigasi-testimoni {
+  display: flex;
+  justify-content: end;
+  gap: 10px;
+}
+.container-list-rating .testimoni .navigasi-testimoni button {
+  padding: 5px 10px;
+  border: none;
+  color: white;
+  box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.575);
+  text-transform: capitalize;
+  border: 1px solid white;
+  cursor: pointer;
+}
+.container-list-rating .testimoni .navigasi-testimoni button:nth-child(1) {
+  background-color: red;
+}
+.container-list-rating .testimoni .navigasi-testimoni button:nth-child(2) {
+  background-color: orangered;
+}
+.container-list-rating .testimoni .footer * {
+  color: grey;
+}
+
+.container-rating-star {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 5px;
+  align-items: center;
+  box-sizing: border-box;
+}
+.container-rating-star h2 {
+  color: #FEBF0A;
+  filter: drop-shadow(1px -1px 1px rgb(0, 0, 0));
+  -webkit-text-stroke: 0.5px rgb(0, 0, 0);
+  font-weight: bold;
+  font-style: italic;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+.container-rating-star .rating-star {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+}
+.container-rating-star .list-star {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.container-rating-star img {
+  cursor: pointer;
+  width: 50px;
+  filter: drop-shadow(1px 1px grey) drop-shadow(-1px -1px grey) grayscale(100%);
+  transition: all 0.5s ease-in-out;
+}
+.container-rating-star .all-star {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  padding: 0;
+}
+.container-rating-star .all-star label {
+  display: flex;
+  cursor: pointer;
+  height: inherit;
+  align-items: center;
+  justify-content: center;
+  background-color: #FEBF0A;
+  padding: 0px 10px;
+  transition: all 0.5s ease-in-out;
+}
+.container-rating-star input[type=radio] {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .container-form-testimoni form {
+    width: 80%;
+  }
+}
+@media (max-width: 576px) {
+  .container-form-testimoni form {
+    width: 100%;
+  }
+  .container-rating-star .rating-star {
+    margin-top: 10px;
+    gap: 10px;
+    flex-direction: column-reverse;
+  }
+}
+@media (max-width: 900px) {
+  .container-list-rating .list-testimoni {
+    width: 100%;
+    padding: 15px;
+    box-sizing: border-box;
+    display: grid;
+    gap: 35px;
+    grid-template-columns: repeat(2, 48%);
+  }
+}
+@media (max-width: 700px) {
+  .container-list-rating .list-testimoni {
+    width: 100%;
+    padding: 15px;
+    box-sizing: border-box;
+    display: grid;
+    gap: 35px;
+    grid-template-columns: repeat(1, 99%);
+  }
+}/*# sourceMappingURL=testimoni.css.map */

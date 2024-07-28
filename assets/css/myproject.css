@@ -132,3 +132,33 @@ div.checkbox-technologi span label {
     padding: 10px 0px 0px 10px;
     box-sizing: content-box;
 }
+
+.date-post {
+    margin: 0;
+}
+
+.date-post div:nth-child(1) {
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    color: silver
+}
+
+.date-post div:nth-child(1) * {
+    color: silver
+}
+
+
+@media (max-width : 768px) {
+    .add-project {
+        width: 80%;
+        box-sizing: border-box;
+    }
+}
+
+@media (max-width : 576px) {
+    .add-project {
+        width: 100%;
+        padding: 10px;
+    }
+}
