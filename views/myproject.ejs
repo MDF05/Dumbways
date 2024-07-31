@@ -1,0 +1,136 @@
+<!-- @format -->
+<%- contentFor("linkCss") %>
+<link rel="stylesheet" href="/assets/css/myproject.css" />
+<link rel="stylesheet" href="/assets/css/listproject.css" />
+
+<%- contentFor("body") %>
+<div class="container-project">
+    <div class="add-project">
+        <h1>add my project</h1>
+        <form action="/v1/myproject" method="post" enctype="multipart/form-data">
+            <div>
+                <label for="name">Project Name</label>
+                <input type="text" name="name" id="project" />
+            </div>
+            <div class="date-project">
+                <span>
+                    <label for="start-date">start-date</label>
+                    <input type="date" name="startDate" id="start-date" />
+                </span>
+                <span>
+                    <label for="end-date">end-date</label>
+                    <input type="date" name="endDate" id="end-date" />
+                </span>
+            </div>
+            <div>
+                <label for="description">description</label>
+                <textarea name="description" id="description"></textarea>
+            </div>
+            <div class="input-technologi">
+                <div>Technologies</div>
+                <div class="checkbox-technologi">
+                    <span>
+                        <input type="checkbox" name="checkNode" id="node" />
+                        <label for="node">Node Js</label>
+                    </span>
+                    <span>
+                        <input type="checkbox" name="checkJavascript" id="javascript" />
+                        <label for="javascript">Javascript</label>
+                    </span>
+                    <span>
+                        <input type="checkbox" name="checkReact" id="react" />
+                        <label for="react">React Js</label>
+                    </span>
+                    <span>
+                        <input type="checkbox" name="checkSocket" id="socket" />
+                        <label for="socket">Socket.io</label>
+                    </span>
+                </div>
+            </div>
+            <div>
+                <label for="imageProject">Upload Image</label>
+                <input type="file" id="image-project" name="imageProject" />
+            </div>
+            <div class="container-submit">
+                <input type="submit" value="submit" id="submit-project" />
+            </div>
+        </form>
+    </div>
+</div>
+<div class="container-list-project">
+    <div class="list-project">
+        <div class="header-list-project">
+            <h1>my project</h1>
+        </div>
+        <div class="list-card">
+            <% listProject.forEach((project, index)=> { %>
+            <div class="container-card-project">
+                <div class="card-project">
+                    <div class="card-image">
+                        <a href="./detail-project.html">
+                            <img src="<%= project.imageProject %>" alt="gambar dummy" class="link-detail" list=${index}
+                                class="link-detail" list="<%= index %>" />
+                        </a>
+                    </div>
+                    <div class="header-card">
+                        <a href="./detail-project.html" class="link-detail" list=${index}>
+                            <h4 class="link-detail" list=${index}>
+                                <%= project.name %>
+                            </h4>
+                            <p class="link-detail" list=${index}>duration <%= project.duration %> month</p>
+                        </a>
+                    </div>
+                    <div class="body-card">
+                        <p>
+                            <%= project.description %>
+                        </p>
+                    </div>
+                    <div class="icon-teknologi">
+                        <% if(project.checkReact){ %>
+                        <img src="https://img.icons8.com/?size=100&id=58811&format=png&color=000000" alt="icon-react" />
+                        <% }%>
+
+                        <% if(project.checkNode){ %>
+                        <img src="https://img.icons8.com/?size=100&id=FQlr_bFSqEdG&format=png&color=000000"
+                            alt="icon-node" />
+                        <% }%>
+
+                        <% if(project.checkJavascript){ %>
+                        <img src="https://img.icons8.com/?size=100&id=39854&format=png&color=000000"
+                            alt="icon-javascript" />
+                        <% }%>
+
+                        <% if(project.checkSocket){ %>
+                        <img src="https://socket.io/images/logo.svg" alt="icon-socket" />
+                        <% }%>
+
+
+                    </div>
+                    <div class="date-post">
+                        <div>
+                            <div class="post-at">
+                                <%= project.postAt %>
+                            </div>
+                            <div>
+                                <%= project.agePost %>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="navigasi-card">
+                        <a href="/v1/myproject/update/<%=index  %>">
+                            <button type="button" class="edit">edit</button>
+                        </a>
+                        <form method="post" action=/v1/myproject/delete/<%=index %>> <button type="submit"
+                            onclick="return confirm('apakah kamu yakin menghapus project ini')" list=<%=index %>
+                            class="delete">delete</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <% }) %>
+        </div>
+    </div>
+</div>
+
+<%- contentFor("linkJs") %>
+<!-- <script src="/assets/js/myproject.js"></script> -->

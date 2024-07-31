@@ -1,0 +1,44 @@
+<!-- @format -->
+<%- contentFor("linkCss") %>
+<link rel="stylesheet" href="/assets/css/contact.css" />
+
+<%- contentFor("body") %>
+<div class="contact-container">
+    <div class="form-container">
+        <h1>GET IN TOUCH</h1>
+        <form action="">
+            <div>
+                <label for="name">Name </label>
+                <input type="name" name="name" id="name" />
+            </div>
+            <div>
+                <label for="email">Email </label>
+                <input type="email" name="email" id="email" />
+            </div>
+            <div>
+                <label for="phone">Phone Number </label>
+                <input type="tel" phone="phone" id="phone" />
+            </div>
+            <div>
+                <label for="subject">Subject </label>
+                <select name="subject" id="subject">
+                    <option value=""></option>
+                    <option value="frontend-developer">frontend-developer</option>
+                    <option value="backend-developer">backend-developer</option>
+                    <option value="fullstack-developer">fullstack-developer</option>
+                </select>
+            </div>
+            <div>
+                <label for="message">Your Message </label>
+                <textarea name="message" id="message"></textarea>
+            </div>
+            <div class="submit-button">
+                <input type="submit" value="mail" class="submit-mail" />
+                <input type="submit" value="gmail" class="submit-gmail" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<%- contentFor("linkJs") %>
+<script src="/assets/js/contact.js"></script>

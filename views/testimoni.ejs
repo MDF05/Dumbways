@@ -1,0 +1,197 @@
+<!-- @format -->
+<%- contentFor("linkCss") %>
+<link rel="stylesheet" href="/assets/css/testimoni.css" />
+
+<%- contentFor("body") %>
+<div class="container-testimoni">
+    <div class="container-form-testimoni">
+        <form>
+            <div class="add-testimoni-container">
+                <h1 class="add-testimoni-title">Add Testimoni</h1>
+            </div>
+            <div>
+                <label for="name">name</label>
+                <input type="text" name="name" id="name" />
+            </div>
+            <div>
+                <label for="deskripsi">deskripsi</label>
+                <textarea type="text" name="deskripsi" id="deskripsi"> </textarea>
+            </div>
+            <div>
+                <label for="input-file">upload gambar </label>
+                <input type="file" name="input-file" id="input-file" />
+            </div>
+            <div class="container-rating">
+                <div>
+                    <h4>berikan rating</h4>
+                </div>
+                <div class="list-rating">
+                    <div class="div-star">
+                        <label for="star-1">
+                            <img
+                                src="https://img.icons8.com/?size=100&id=8ggStxqyboK5&format=png&color=000000"
+                                alt="baru"
+                                class="star" />
+                        </label>
+                        <input
+                            type="radio"
+                            name="star"
+                            id="star-1"
+                            hidden
+                            class="star-count"
+                            star="1"
+                            value="1" />
+                    </div>
+                    <div class="div-star">
+                        <label for="star-2">
+                            <img
+                                src="https://img.icons8.com/?size=100&id=8ggStxqyboK5&format=png&color=000000"
+                                alt="baru"
+                                class="star" />
+                        </label>
+                        <input
+                            type="radio"
+                            name="star"
+                            id="star-2"
+                            hidden
+                            class="star-count"
+                            star="2"
+                            value="2" />
+                    </div>
+                    <div class="div-star">
+                        <label for="star-3">
+                            <img
+                                src="https://img.icons8.com/?size=100&id=8ggStxqyboK5&format=png&color=000000"
+                                alt="baru"
+                                class="star" />
+                        </label>
+                        <input
+                            type="radio"
+                            name="star"
+                            id="star-3"
+                            hidden
+                            class="star-count"
+                            star="3"
+                            value="3" />
+                    </div>
+                    <div class="div-star">
+                        <label for="star-4">
+                            <img
+                                src="https://img.icons8.com/?size=100&id=8ggStxqyboK5&format=png&color=000000"
+                                alt="baru"
+                                class="star" />
+                        </label>
+                        <input
+                            type="radio"
+                            name="star"
+                            id="star-4"
+                            class="star-count"
+                            hidden
+                            star="4"
+                            value="4" />
+                    </div>
+                    <div class="div-star">
+                        <label for="star-5">
+                            <img
+                                src="https://img.icons8.com/?size=100&id=8ggStxqyboK5&format=png&color=000000"
+                                alt="baru"
+                                class="star" />
+                        </label>
+                        <input
+                            type="radio"
+                            name="star"
+                            id="star-5"
+                            hidden
+                            class="star-count"
+                            star="5"
+                            value="5" />
+                    </div>
+                </div>
+            </div>
+            <div class="submit-container">
+                <input type="submit" value="submit" class="add-testimoni" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="container-list-rating">
+    <div class="judul-testimoni">
+        <h1>list Testimoni</h1>
+    </div>
+    <div class="container-rating-star">
+        <h2>Rating By Star</h2>
+        <div class="rating-star">
+            <span class="list-star">
+                <span
+                    ><input
+                        type="radio"
+                        class="filter-star"
+                        id="star-rating-1"
+                        value="1"
+                        name="filter-star-rating" />
+                    <label class="label-reset" for="star-rating-1"
+                        ><img
+                            src="https://img.icons8.com/?size=100&id=8ggStxqyboK5&format=png&color=000000"
+                            alt="filter-rating-by-star"
+                            class="filter-star-rating" /></label></span
+                ><span
+                    ><input
+                        type="radio"
+                        class="filter-star"
+                        id="star-rating-2"
+                        value="2"
+                        name="filter-star-rating" /><label class="label-reset" for="star-rating-2"
+                        ><img
+                            src="https://img.icons8.com/?size=100&id=8ggStxqyboK5&format=png&color=000000"
+                            alt="filter-rating-by-star"
+                            class="filter-star-rating" /></label></span
+                ><span
+                    ><input
+                        type="radio"
+                        class="filter-star"
+                        id="star-rating-3"
+                        value="3"
+                        name="filter-star-rating" /><label class="label-reset" for="star-rating-3"
+                        ><img
+                            src="https://img.icons8.com/?size=100&id=8ggStxqyboK5&format=png&color=000000"
+                            alt="filter-rating-by-star"
+                            class="filter-star-rating" /></label></span
+                ><span
+                    ><input
+                        type="radio"
+                        class="filter-star"
+                        id="star-rating-4"
+                        value="4"
+                        name="filter-star-rating" /><label class="label-reset" for="star-rating-4"
+                        ><img
+                            src="https://img.icons8.com/?size=100&id=8ggStxqyboK5&format=png&color=000000"
+                            alt="filter-rating-by-star"
+                            class="filter-star-rating" /></label></span
+                ><span
+                    ><input
+                        type="radio"
+                        class="filter-star"
+                        id="star-rating-5"
+                        value="5"
+                        name="filter-star-rating" /><label class="label-reset" for="star-rating-5"
+                        ><img
+                            src="https://img.icons8.com/?size=100&id=8ggStxqyboK5&format=png&color=000000"
+                            alt="filter-rating-by-star"
+                            class="filter-star-rating" /></label
+                ></span>
+            </span>
+            <span class="all-star">
+                <label for="reset-rating">All Rating</label>
+                <input type="radio" name="filter-star-rating" value="0" id="reset-rating" />
+            </span>
+        </div>
+    </div>
+    <div class="list-testimoni"></div>
+</div>
+
+<%- contentFor("linkJs") %>
+
+<!-- <script src="/assets/js/OOP-listTestimonial.js"></script> -->
+
+<script src="/assets/js/testimonial.js"></script>

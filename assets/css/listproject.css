@@ -80,13 +80,26 @@ div.navigasi-card {
     gap: 10px;
 }
 
+div.navigasi-card form {
+    display: flex;
+    width: 50%;
+    border-radius: 5px;
+}
+
+div.navigasi-card a {
+    text-decoration: none;
+    display: flex;
+    width: 50%;
+    border-radius: 5px;
+}
+
 div.navigasi-card button {
     background-color: black;
-    width: 50%;
+    border-radius: 5px;
+    width: 100%;
     height: 25px;
     border: none;
     color: white;
-    border-radius: 5px;
     cursor: pointer;
 }
 

@@ -1,0 +1,69 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/assets/css/navbar.css" />
+    <%- linkCss %>
+</head>
+
+<body>
+    <nav>
+        <div class="left">
+            <ul>
+                <li class="li-image-dumbways">
+                    <img src="/assets/image/dumbways.png" alt="logo-dumbways" class="image-dumbways" />
+                </li>
+                <li class="grup-1" id="grup-hidden">
+                    <a href="/v1/home" class="home">home</a>
+                </li>
+                <li class="grup-1" id="grup-hidden">
+                    <a href="/v1/myproject">My Project</a>
+                </li>
+                <li class="grup-1" id="grup-hidden">
+                    <a href="/v1/testimoni">Testimoni</a>
+                </li>
+            </ul>
+        </div>
+        <div class="right grup-1" id="grup-hidden">
+            <a href="contact">contact me</a>
+        </div>
+        <div class="container-hamburger">
+            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 24 24">
+                <path d="M2 11H22V13H2zM2 5H22V7H2zM2 17H22V19H2z"></path>
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 24 24"
+                class="hidden">
+                <path d="M11 0.7H13V23.3H11z" transform="rotate(-45.001 12 12)"></path>
+                <path d="M0.7 11H23.3V13H0.7z" transform="rotate(-45.001 12 12)"></path>
+            </svg>
+        </div>
+    </nav>
+    <div class="container-nav-hamburger">
+        <ul>
+            <li>
+                <a href="/v1/home">Home</a>
+            </li>
+            <li>
+                <a href="/v1/myproject">My Project</a>
+            </li>
+            <li>
+                <a href="/v1/contact">Contact Me</a>
+            </li>
+            <li>
+                <a href="/v1/testimonial">Testimoni</a>
+            </li>
+        </ul>
+    </div>
+
+    <%- body %>
+
+    <script src="/assets/js/nav.js"></script>
+    <%- linkJs %>
+</body>
+
+</html>

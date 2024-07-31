@@ -1,0 +1,63 @@
+<!-- @format -->
+<%- contentFor("linkCss") %>
+<link rel="stylesheet" href="/assets/css/myproject.css" />
+
+<%- contentFor("body") %>
+<div class="container-project">
+    <div class="add-project">
+        <h1>update Project</h1>
+        <form action="/v1/myproject" method="post" enctype="multipart/form-data">
+            <div>
+                <label for="name">Project Name</label>
+                <input type="text" name="name" id="project" value="<%= project.name %>" />
+            </div>
+            <div class="date-project">
+                <span>
+                    <label for="start-date">start-date</label>
+                    <input type="date" name="startDate" id="start-date" value="<%= project.startDate  %>" />
+                </span>
+                <span>
+                    <label for="end-date">end-date</label>
+                    <input type="date" name="endDate" id="end-date" value="<%= project.endDate  %>" />
+                </span>
+            </div>
+            <div>
+                <label for="description">description</label>
+                <textarea name="description" id="description"><%= project.description  %></textarea>
+            </div>
+            <div class="input-technologi">
+                <div>Technologies</div>
+                <div class="checkbox-technologi">
+                    <span>
+                        <input type="checkbox" name="checkNode" id="node"
+                            <%= project.checkNode == 'on' ? "checked" : ""  %> />
+                        <label for="node">Node Js</label>
+                    </span>
+                    <span>
+                        <input type="checkbox" name="checkJavascript" id="javascript"
+                            <%= project.checkJavascript == 'on' ? "checked" : ""  %> />
+                        <label for="javascript">Javascript</label>
+                    </span>
+                    <span>
+                        <input type="checkbox" name="checkReact" id="react"
+                            <%= project.checkReact == 'on' ? "checked" : ""  %> />
+                        <label for="react">React Js</label>
+                    </span>
+                    <span>
+                        <input type="checkbox" name="checkSocket" id="socket"
+                            <%= project.checkSocket == 'on' ? "checked" : ""  %> />
+                        <label for="socket">Socket.io</label>
+                    </span>
+                </div>
+            </div>
+            <div>
+                <label for="imageProject">Upload Image</label>
+                <input type="file" id="image-project" name="imageProject" value="<%= project.imageProject %>" />
+            </div>
+            <div class="container-submit">
+                <input type="submit" value="submit" id="submit-project" />
+            </div>
+        </form>
+    </div>
+
+    <%- contentFor("linkJs") %>

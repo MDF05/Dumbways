@@ -16,8 +16,6 @@ function addProject(event) {
     const checkJavascript = document.querySelector("#javascript").checked
     const checkSocket = document.querySelector("#socket").checked
 
-
-
     let alertMessage = ""
     if (nameProject == "") alertMessage += `tolong isi nama project nya \n`
     if (startDateTime == "") alertMessage += `tolong isi start time project nya \n`
@@ -45,14 +43,13 @@ function addProject(event) {
             checkReact,
             checkJavascript,
             checkSocket,
-            postAt: new Date()
+            postAt: new Date(),
         }
 
         dataForm.push(form)
         localStorage.setItem("dataForm", JSON.stringify(dataForm))
         return setViewProject()
     }
-
 }
 
 document.body.addEventListener("click", (element) => {
@@ -83,19 +80,22 @@ function setViewProject() {
     listCard.innerHTML = ""
 
     dataForm.forEach((data, index) => {
-
-                listCard.innerHTML += `
+        listCard.innerHTML += `
         <div class="container-card-project">
                 <div class="card-project">
                     <div class="card-image">
                         <a href="./detail-project.html">
-                            <img src="${data.imageProject}" alt="gambar dummy"  class="link-detail" list=${index} class="link-detail" list=${index}/>
+                            <img src="${
+                                data.imageProject
+                            }" alt="gambar dummy"  class="link-detail" list=${index} class="link-detail" list=${index}/>
                         </a>
                     </div>
                     <div class="header-card">
                         <a href="./detail-project.html" class="link-detail" list=${index}>
                             <h4 class="link-detail" list=${index}>${data.nameProject}</h4>
-                            <p class="link-detail" list=${index}>duration ${data.duration}  month</p>
+                            <p class="link-detail" list=${index}>duration ${
+            data.duration
+        }  month</p>
                         </a>
                     </div>
                     <div class="body-card">
@@ -104,20 +104,36 @@ function setViewProject() {
                         </p>
                     </div>
                     <div class="icon-teknologi">
-                    ${data.checkReact ? `<img src="https://img.icons8.com/?size=100&id=58811&format=png&color=000000"
-                        alt="icon-react" />`: ""}
+                    ${
+                        data.checkReact
+                            ? `<img src="https://img.icons8.com/?size=100&id=58811&format=png&color=000000"
+                        alt="icon-react" />`
+                            : ""
+                    }
 
-                    ${data.checkNode ? `<img
+                    ${
+                        data.checkNode
+                            ? `<img
                         src="https://img.icons8.com/?size=100&id=FQlr_bFSqEdG&format=png&color=000000"
-                        alt="icon-node" />` : ""}
-                    
-                    ${data.checkJavascript ? `<img
+                        alt="icon-node" />`
+                            : ""
+                    }
+
+                    ${
+                        data.checkJavascript
+                            ? `<img
                         src="https://img.icons8.com/?size=100&id=39854&format=png&color=000000"
-                        alt="icon-javascript" />`: ""}
-                    
-                    ${data.checkSocket ? `<img src="https://socket.io/images/logo.svg" alt="icon-socket" />` : ""}
+                        alt="icon-javascript" />`
+                            : ""
+                    }
+
+                    ${
+                        data.checkSocket
+                            ? `<img src="https://socket.io/images/logo.svg" alt="icon-socket" />`
+                            : ""
+                    }
                     </div>
-                    <div class="date-post"> 
+                    <div class="date-post">
                         <div>
                             <div class="post-at">${datePostConvert(data.postAt)}</div>
                             <div> ${calculateAgePost(data.postAt)} </div>
@@ -139,11 +155,23 @@ function datePostConvert(datePost) {
     const ClasssDate = new Date(datePost)
 
     const nameOfMonth = [
-        "Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"
+        "Januari",
+        "Februari",
+        "Maret",
+        "April",
+        "Mei",
+        "Juni",
+        "Juli",
+        "Agustus",
+        "September",
+        "Oktober",
+        "November",
+        "Desember",
     ]
 
-
-    return `${ClasssDate.getDay()} ${nameOfMonth[ClasssDate.getMonth()]} ${ClasssDate.getFullYear()}`
+    return `${ClasssDate.getDay()} ${
+        nameOfMonth[ClasssDate.getMonth()]
+    } ${ClasssDate.getFullYear()}`
 }
 
 function calculateAgePost(datePost) {
@@ -153,15 +181,15 @@ function calculateAgePost(datePost) {
     const distanceDate = ClassNowDate - ClassDatePost
 
     const distanceDay = Math.floor(distanceDate / 1000 / 60 / 60 / 24)
-    const distanceHours = Math.floor(distanceDate / 1000 / 60 / 60 )
-    const distanceMinute = Math.floor(distanceDate / 1000 / 60  )
+    const distanceHours = Math.floor(distanceDate / 1000 / 60 / 60)
+    const distanceMinute = Math.floor(distanceDate / 1000 / 60)
     const distanceYears = Math.floor(distanceDay / 365)
 
-    let agePost;
+    let agePost
     if (distanceYears > 0) agePost = `${distanceYears} years ago`
-    else if ( distanceDay > 0) agePost = `${distanceDay} day ago`
-    else if ( distanceHours > 0 ) agePost= `${distanceHours} hours ago`
-    else if (distanceMinute > 0) agePost  = `${distanceMinute} minute ago`
+    else if (distanceDay > 0) agePost = `${distanceDay} day ago`
+    else if (distanceHours > 0) agePost = `${distanceHours} hours ago`
+    else if (distanceMinute > 0) agePost = `${distanceMinute} minute ago`
     else agePost = `now`
 
     return agePost
