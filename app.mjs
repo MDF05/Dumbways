@@ -17,12 +17,12 @@ export const version = "v1"
 
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
+app.use(expressEjsLayouts)
 app.use("/assets", express.static("assets"))
 app.set("view engine", ejs)
 app.set("views", "views")
 app.set("view cache", true)
 
-app.use(expressEjsLayouts)
 
 app.use(`/${version}/home`, homeRouter)
 app.use(`/${version}/contact`, contactRouter)
