@@ -1,15 +1,16 @@
-import createError from "../utils/throwError.mjs"
+import createError from "../utils/middleware/throwError.mjs"
 import datePostConvert from "../utils/myproject/datePostConvert.mjs"
 import calculateAgePost from "../utils/myproject/agePost.mjs"
 import durationProject from "../utils/myproject/durationProject.mjs"
 import saveImage from "../utils/myproject/saveImage.mjs"
 import deleteImage from "../utils/myproject/deleteImage.mjs"
+import { version } from "../app.mjs"
 
 let listProject = []
 
 function renderMyprojectPage(req, res, next) {
     try {
-        res.render("myproject.ejs", { layout: "partials/template.ejs", listProject })
+        res.render("myproject.ejs", { layout: "partials/template.ejs", listProject, version })
     } catch (err) {
         next(createError(400, err.message))
     }
@@ -47,7 +48,7 @@ async function postMyProject(req, res, next) {
         saveImage(req.file.buffer, req.body.name)
         // http://localhost:3000/assets/form-image/dava.jpg
 
-        res.redirect("/v1/myproject")
+        return res.redirect("/v1/myproject")
     } catch (err) {
         return next(createError(400, err.message))
     }
@@ -69,11 +70,56 @@ async function getOneProject(req, res, next) {
         const id = req.params.id
         const project = listProject[id]
 
-        console.log(project)
-        return res.render("update.ejs", { layout: "partials/template.ejs", project })
+        return res.render("update.ejs", {
+            layout: "partials/template.ejs",
+            project,
+            version,
+            index: id,
+        })
     } catch (err) {
-        next(createError(400, err.message))
+        return next(createError(400, err.message))
     }
 }
 
-export { renderMyprojectPage, postMyProject, deleteMyProject, getOneProject }
+async function updateProject(req, res, next) {
+    try {
+        const id = req.params.id
+        const oldProject = listProject[id]
+
+        const {
+            name,
+            startDate,
+            endDate,
+            description,
+            checkJavascript,
+            checkNode,
+            checkSocket,
+            checkReact,
+        } = req.body
+
+        deleteImage(oldProject.name)
+        saveImage(req.file.buffer, name)
+
+        const updatedProject = {
+            name,
+            startDate,
+            endDate,
+            description,
+            checkJavascript,
+            checkNode,
+            checkSocket,
+            checkReact,
+            imageProject: `/assets/myproject/${name}.jpg`,
+            duration: durationProject(startDate, endDate),
+            postAt: datePostConvert(new Date()),
+            agePost: calculateAgePost(new Date()),
+        }
+
+        listProject[id] = updatedProject
+        return res.redirect("/v1/myproject")
+    } catch (err) {
+        return next(createError(400, err.message))
+    }
+}
+
+export { renderMyprojectPage, postMyProject, deleteMyProject, getOneProject, updateProject }

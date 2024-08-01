@@ -1,4 +1,4 @@
-import createError from "../utils/throwError.mjs"
+import createError from "../utils/middleware/throwError.mjs"
 
 function renderContactPage(req, res, next) {
     try {

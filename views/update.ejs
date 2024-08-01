@@ -6,7 +6,7 @@
 <div class="container-project">
     <div class="add-project">
         <h1>update Project</h1>
-        <form action="/v1/myproject" method="post" enctype="multipart/form-data">
+        <form action="/<%= version  %>/myproject/update/<%= index %>" method="post" enctype="multipart/form-data">
             <div>
                 <label for="name">Project Name</label>
                 <input type="text" name="name" id="project" value="<%= project.name %>" />
