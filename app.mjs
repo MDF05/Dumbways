@@ -1,9 +1,12 @@
 import express from "express"
 import dotenv from "dotenv"
 import CreateError from "./utils/middleware/throwError.mjs"
-import path from "path"
 import ejs from "ejs"
 import expressEjsLayouts from "express-ejs-layouts"
+import mongoose from "mongoose"
+import session from "express-session"
+import cookieParser from "cookie-parser"
+import flash from "connect-flash"
 
 import homeRouter from "./route/home-router.mjs"
 import contactRouter from "./route/contact-router.mjs"
@@ -15,14 +18,27 @@ const app = express()
 const port = process.env.port || 3000
 export const version = "v1"
 
+app.use(cookieParser())
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 app.use(expressEjsLayouts)
 app.use("/assets", express.static("assets"))
+app.use("/bootstrap", express.static("node_modules/bootstrap/dist/css"))
 app.set("view engine", ejs)
 app.set("views", "views")
 app.set("view cache", true)
 
+app.use(
+    session({
+        maxAge: 20000,
+        secret: "keyboard cat",
+        resave: true,
+        saveUninitialized: true,
+        // cookie: { secure: true },
+    }),
+)
+
+app.use(flash())
 
 app.use(`/${version}/home`, homeRouter)
 app.use(`/${version}/contact`, contactRouter)
@@ -55,4 +71,12 @@ app.use((err, req, res, next) => {
     })
 })
 
-app.listen(port, () => console.log(`your app listening on http://localhost:${port}`))
+app.listen(port, async () => {
+    try {
+        await mongoose.connect(process.env.database)
+        console.log(`your app listening on http://localhost:${port}`),
+            console.log(`berhasil connect ke database`)
+    } catch (err) {
+        console.log(err.message)
+    }
+})

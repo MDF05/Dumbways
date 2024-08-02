@@ -1,10 +1,25 @@
 <!-- @format -->
 <%- contentFor("linkCss") %>
+<link rel="stylesheet" href="/bootstrap/bootstrap.css">
 <link rel="stylesheet" href="/assets/css/myproject.css" />
 <link rel="stylesheet" href="/assets/css/listproject.css" />
 
+
 <%- contentFor("body") %>
 <div class="container-project">
+    <div class="alert">
+        <% if(messageError.length !== 0) {  messageError.forEach((msg, index) => { %>
+        <div class="alert alert-danger alert-dismissible fade show fixed-top">
+            <%= msg %>
+        </div>
+        <%  })} %>
+        <% if(messageSucces.length !== 0) {  messageSucces.forEach((msg, index) => { %>
+        <div class="alert alert-Succes alert-dismissible fade show">
+            <%= msg %>
+        </div>
+        <%  })} %>
+    </div>
+
     <div class="add-project">
         <h1>add my project</h1>
         <form action="/v1/myproject" method="post" enctype="multipart/form-data">
@@ -63,12 +78,12 @@
             <h1>my project</h1>
         </div>
         <div class="list-card">
-            <% listProject.forEach((project, index)=> { %>
+            <% Projects.forEach((project, index)=> { %>
             <div class="container-card-project">
                 <div class="card-project">
                     <div class="card-image">
                         <a href="/<%= version  %>/detail-project/<%= index  %>">
-                            <img src="<%= project.imageProject %>" alt="gambar dummy" class="link-detail"
+                            <img src="/<%= project.imageProject %>" alt="gambar dummy" class="link-detail"
                                 class="link-detail" list="<%= index %>" />
                         </a>
                     </div>
@@ -112,15 +127,14 @@
                                 <%= project.postAt %>
                             </div>
                             <div>
-                                <%= project.agePost %>
                             </div>
                         </div>
                     </div>
                     <div class="navigasi-card">
-                        <a href="/<%= version  %>/myproject/update/<%=index  %>">
+                        <a href="/<%= version  %>/myproject/update/<%= project._id %>">
                             <button type="button" class="edit">edit</button>
                         </a>
-                        <form method="post" action=/v1/myproject/delete/<%=index %>> <button type="submit"
+                        <form method="post" action=/v1/myproject/delete/<%=project._id %>> <button type="submit"
                             onclick="return confirm('apakah kamu yakin menghapus project ini')" list=<%=index %>
                             class="delete">delete</button>
                         </form>
@@ -133,4 +147,5 @@
 </div>
 
 <%- contentFor("linkJs") %>
-<!-- <script src="/assets/js/myproject.js"></script> -->
+
+<!-- <script src="/assets/js/myproject.js"></> -->

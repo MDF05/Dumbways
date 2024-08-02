@@ -5,12 +5,25 @@ import durationProject from "../utils/myproject/durationProject.mjs"
 import saveImage from "../utils/myproject/saveImage.mjs"
 import deleteImage from "../utils/myproject/deleteImage.mjs"
 import { version } from "../app.mjs"
+import ProjectModel from "../model/myproject-model.mjs"
 
-let listProject = []
-
-function renderMyprojectPage(req, res, next) {
+async function renderMyprojectPage(req, res, next) {
     try {
-        res.render("myproject.ejs", { layout: "partials/template.ejs", listProject, version })
+        const Projects = await ProjectModel.find({})
+
+        const messageError = req.flash("error")
+        const messageSucces = req.flash("succes")
+
+        console.log(messageSucces)
+        console.log(messageError)
+
+        res.render("myproject.ejs", {
+            layout: "partials/template.ejs",
+            Projects,
+            version,
+            messageError,
+            messageSucces,
+        })
     } catch (err) {
         next(createError(400, err.message))
     }
@@ -27,9 +40,10 @@ async function postMyProject(req, res, next) {
             checkReact,
             checkJavascript,
             checkSocket,
+            imageProject,
         } = req.body
 
-        const project = {
+        const Project = new ProjectModel({
             name,
             startDate,
             endDate,
@@ -38,16 +52,17 @@ async function postMyProject(req, res, next) {
             checkReact,
             checkJavascript,
             checkSocket,
-            imageProject: `/assets/myproject/${name}.jpg`,
-            duration: durationProject(startDate, endDate),
+            imageProject: `assets/myproject/${name}.jpg`,
             postAt: datePostConvert(new Date()),
-            agePost: calculateAgePost(new Date()),
-        }
+            agePost: new Date(),
+            duration: durationProject(startDate, endDate),
+        })
 
-        listProject.push(project)
         saveImage(req.file.buffer, req.body.name)
+        await Project.save()
         // http://localhost:3000/assets/form-image/dava.jpg
 
+        req.flash("succes", "berhasil menambahkan project baru")
         return res.redirect("/v1/myproject")
     } catch (err) {
         return next(createError(400, err.message))
@@ -57,8 +72,9 @@ async function postMyProject(req, res, next) {
 async function deleteMyProject(req, res, next) {
     try {
         const id = req.params.id
-        deleteImage(listProject[id].name)
-        delete listProject[id]
+        const findProject = await ProjectModel.findOne({ _id: id })
+        deleteImage(findProject.name)
+        await ProjectModel.deleteOne({ _id: id })
         return res.redirect("/v1/myproject")
     } catch (err) {
         next(createError(400, err.message))
@@ -68,13 +84,12 @@ async function deleteMyProject(req, res, next) {
 async function getOneProject(req, res, next) {
     try {
         const id = req.params.id
-        const project = listProject[id]
+        const Project = await ProjectModel.findOne({ _id: id })
 
         return res.render("update.ejs", {
             layout: "partials/template.ejs",
-            project,
+            Project,
             version,
-            index: id,
         })
     } catch (err) {
         return next(createError(400, err.message))
@@ -83,9 +98,6 @@ async function getOneProject(req, res, next) {
 
 async function updateProject(req, res, next) {
     try {
-        const id = req.params.id
-        const oldProject = listProject[id]
-
         const {
             name,
             startDate,
@@ -96,9 +108,6 @@ async function updateProject(req, res, next) {
             checkSocket,
             checkReact,
         } = req.body
-
-        deleteImage(oldProject.name)
-        saveImage(req.file.buffer, name)
 
         const updatedProject = {
             name,
@@ -111,11 +120,15 @@ async function updateProject(req, res, next) {
             checkReact,
             imageProject: `/assets/myproject/${name}.jpg`,
             duration: durationProject(startDate, endDate),
-            postAt: datePostConvert(new Date()),
-            agePost: calculateAgePost(new Date()),
         }
 
-        listProject[id] = updatedProject
+        const id = req.params.id
+        const oldProject = await ProjectModel.findeOne({ _id: id })
+        deleteImage(oldProject.name)
+
+        await ProjectModel.updateOne({ _id: id }, { $set: updatedProject })
+        saveImage(req.file.buffer, name)
+
         return res.redirect("/v1/myproject")
     } catch (err) {
         return next(createError(400, err.message))

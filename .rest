@@ -2,3 +2,39 @@ GET http://localhost:3000/v1/home
 
 
 
+###
+GET http://localhost:3000/v1/myproject
+
+###
+POST  http://localhost:3000/v1/myproject
+Content-Type: application/json
+
+{           
+    "name": "test",
+    "description":"test",
+    "checkNode":"test",
+    "checkReact":"test" ,
+    "checkJavascript":"test",
+    "checkSocket":"satu",
+    "imageProject":"/assets/myproject/${name}.jpg",
+    "duration": "satu"
+}
+
+
+####
+POST  http://localhost:3000/v1/myproject/update/66ab9d3f70188f883753658e
+Content-Type: application/json
+
+{           
+    "name": "baru",
+    "description":"test",
+    "checkNode":"test",
+    "checkReact":"test" ,
+    "checkJavascript":"test",
+    "checkSocket":"satu",
+    "imageProject":"/assets/myproject/${name}.jpg",
+    "duration": "satu"
+}
+
+
+

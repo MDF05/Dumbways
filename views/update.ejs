@@ -6,56 +6,59 @@
 <div class="container-project">
     <div class="add-project">
         <h1>update Project</h1>
-        <form action="/<%= version  %>/myproject/update/<%= index %>" method="post" enctype="multipart/form-data">
+
+        <% console.log(Project) %>
+
+        <form action="/<%= version  %>/myproject/update/<%= Project._id %>" method="post" enctype="multipart/form-data">
             <div>
                 <label for="name">Project Name</label>
-                <input type="text" name="name" id="project" value="<%= project.name %>" />
+                <input type="text" name="name" id="project" value="<%= Project.name %>" />
             </div>
             <div class="date-project">
                 <span>
                     <label for="start-date">start-date</label>
-                    <input type="date" name="startDate" id="start-date" value="<%= project.startDate  %>" />
+                    <input type="date" name="startDate" id="start-date" value="<%= Project.startDate  %>" />
                 </span>
                 <span>
                     <label for="end-date">end-date</label>
-                    <input type="date" name="endDate" id="end-date" value="<%= project.endDate  %>" />
+                    <input type="date" name="endDate" id="end-date" value="<%= Project.endDate  %>" />
                 </span>
             </div>
             <div>
                 <label for="description">description</label>
-                <textarea name="description" id="description"><%= project.description  %></textarea>
+                <textarea name="description" id="description"><%= Project.description  %></textarea>
             </div>
             <div class="input-technologi">
                 <div>Technologies</div>
                 <div class="checkbox-technologi">
                     <span>
                         <input type="checkbox" name="checkNode" id="node"
-                            <%= project.checkNode == 'on' ? "checked" : ""  %> />
+                            <%= Project.checkNode == 'on' ? "checked" : ""  %> />
                         <label for="node">Node Js</label>
                     </span>
                     <span>
                         <input type="checkbox" name="checkJavascript" id="javascript"
-                            <%= project.checkJavascript == 'on' ? "checked" : ""  %> />
+                            <%= Project.checkJavascript == 'on' ? "checked" : ""  %> />
                         <label for="javascript">Javascript</label>
                     </span>
                     <span>
                         <input type="checkbox" name="checkReact" id="react"
-                            <%= project.checkReact == 'on' ? "checked" : ""  %> />
+                            <%= Project.checkReact == 'on' ? "checked" : ""  %> />
                         <label for="react">React Js</label>
                     </span>
                     <span>
                         <input type="checkbox" name="checkSocket" id="socket"
-                            <%= project.checkSocket == 'on' ? "checked" : ""  %> />
+                            <%= Project.checkSocket == 'on' ? "checked" : ""  %> />
                         <label for="socket">Socket.io</label>
                     </span>
                 </div>
             </div>
             <div>
                 <label for="imageProject">Upload Image</label>
-                <input type="file" id="image-project" name="imageProject" value="<%= project.imageProject %>" />
+                <input type="file" id="image-project" name="imageProject" value="<%= Project.imageProject %>" />
             </div>
             <div class="container-submit">
-                <input type="submit" value="submit" id="submit-project" />
+                <input type="submit" value="update" id="submit-project" />
             </div>
         </form>
     </div>
