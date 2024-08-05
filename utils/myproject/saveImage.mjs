@@ -7,5 +7,3 @@ export default function saveImage(buffer, name) {
         return true
     })
 }
-
-fs.writeFileSync("asu.txt", "asyiap")
