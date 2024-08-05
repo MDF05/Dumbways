@@ -6,18 +6,19 @@ import expressEjsLayouts from "express-ejs-layouts"
 import mongoose from "mongoose"
 import session from "express-session"
 import cookieParser from "cookie-parser"
-import flash from "connect-flash"
+import methodOverride from "method-override"
 
 import homeRouter from "./route/home-router.mjs"
 import contactRouter from "./route/contact-router.mjs"
 import testimoniRouter from "./route/testimoni-router.mjs"
-import myProjectRouter from "./route/myproject-router.mjs"
+import myProjectRouter from "./route/project-router.mjs"
 
 dotenv.config()
 const app = express()
 const port = process.env.port || 3000
 export const version = "v1"
 
+app.use(methodOverride("_method"))
 app.use(cookieParser())
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
@@ -30,20 +31,20 @@ app.set("view cache", true)
 
 app.use(
     session({
-        maxAge: 20000,
-        secret: "keyboard cat",
+        secret: "dumbwa cat",
         resave: true,
         saveUninitialized: true,
-        // cookie: { secure: true },
+        cookie: {
+            secure: true,
+            maxAge: 1000 * 60 * 60 * 24,
+        },
     }),
 )
-
-app.use(flash())
 
 app.use(`/${version}/home`, homeRouter)
 app.use(`/${version}/contact`, contactRouter)
 app.use(`/${version}/testimoni`, testimoniRouter)
-app.use(`/${version}/myproject`, myProjectRouter)
+app.use(`/${version}/project`, myProjectRouter)
 
 app.get("/", (req, res, next) => {
     return res.json({

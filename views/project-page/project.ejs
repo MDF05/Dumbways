@@ -1,6 +1,5 @@
 <!-- @format -->
 <%- contentFor("linkCss") %>
-<link rel="stylesheet" href="/bootstrap/bootstrap.css">
 <link rel="stylesheet" href="/assets/css/myproject.css" />
 <link rel="stylesheet" href="/assets/css/listproject.css" />
 
@@ -8,21 +7,12 @@
 <%- contentFor("body") %>
 <div class="container-project">
     <div class="alert">
-        <% if(messageError.length !== 0) {  messageError.forEach((msg, index) => { %>
-        <div class="alert alert-danger alert-dismissible fade show fixed-top">
-            <%= msg %>
-        </div>
-        <%  })} %>
-        <% if(messageSucces.length !== 0) {  messageSucces.forEach((msg, index) => { %>
-        <div class="alert alert-Succes alert-dismissible fade show">
-            <%= msg %>
-        </div>
-        <%  })} %>
+
     </div>
 
     <div class="add-project">
         <h1>add my project</h1>
-        <form action="/v1/myproject" method="post" enctype="multipart/form-data">
+        <form action="/v1/project" method="post" enctype="multipart/form-data">
             <div>
                 <label for="name">Project Name</label>
                 <input type="text" name="name" id="project" />
@@ -64,7 +54,10 @@
             </div>
             <div>
                 <label for="imageProject">Upload Image</label>
-                <input type="file" id="image-project" name="imageProject" />
+                <input type="file" id="imageProject" name="imageProject" />
+                <label for="imageProject" class="d-flex justify-content-center mt-2 preview-image-form">
+                    <img src="" alt="preview-image" class="preview-image border border-black rounded-2">
+                </label>
             </div>
             <div class="container-submit">
                 <input type="submit" value="submit" id="submit-project" />
@@ -82,17 +75,17 @@
             <div class="container-card-project">
                 <div class="card-project">
                     <div class="card-image">
-                        <a href="/<%= version  %>/detail-project/<%= index  %>">
+                        <a href="/<%= version  %>/project/detail/<%= project._id  %>">
                             <img src="/<%= project.imageProject %>" alt="gambar dummy" class="link-detail"
                                 class="link-detail" list="<%= index %>" />
                         </a>
                     </div>
                     <div class="header-card">
-                        <a href="/<%= version  %>/detail-project/<%= index  %>" class="link-detail">
+                        <a href="/<%= version  %>/project/detail/<%= project._id  %> %>" class="link-detail">
                             <h4 class="link-detail" list=${index}>
                                 <%= project.name %>
                             </h4>
-                            <p class="link-detail" list=${index}>duration <%= project.duration %> month</p>
+                            <p class="link-detail" list=${index}>duration <%= project.duration %></p>
                         </a>
                     </div>
                     <div class="body-card">
@@ -127,16 +120,18 @@
                                 <%= project.postAt %>
                             </div>
                             <div>
+                                <% const agePost = calculateAgePost(project.agePost) %>
+                                <%= agePost  %>
                             </div>
                         </div>
                     </div>
                     <div class="navigasi-card">
-                        <a href="/<%= version  %>/myproject/update/<%= project._id %>">
+                        <a href="/<%= version  %>/project/<%= project._id %>">
                             <button type="button" class="edit">edit</button>
                         </a>
-                        <form method="post" action=/v1/myproject/delete/<%=project._id %>> <button type="submit"
-                            onclick="return confirm('apakah kamu yakin menghapus project ini')" list=<%=index %>
-                            class="delete">delete</button>
+                        <form method="post" action="/v1/project/<%= project._id %>?_method=DELETE"> <button
+                                type="submit" onclick="return confirm('apakah kamu yakin menghapus project ini')"
+                                list=<%=index %> class="delete">delete</button>
                         </form>
                     </div>
                 </div>
@@ -149,3 +144,12 @@
 <%- contentFor("linkJs") %>
 
 <!-- <script src="/assets/js/myproject.js"></> -->
+<script>
+    const previewImage = document.querySelector(".preview-image")
+    const inputImage = document.querySelector("#imageProject")
+
+    inputImage.addEventListener("change", (event) => {
+        const img = inputImage.files[0]
+        previewImage.src = URL.createObjectURL(img)
+    })
+</script>

@@ -3,51 +3,47 @@ import mongoose from "mongoose"
 const ProjectSchema = new mongoose.Schema({
     name: {
         type: String,
-        // required: true,
+        required: true,
     },
     description: {
         type: String,
-        // required: true,
+        required: true,
     },
     startDate: {
         type: String,
-        // required: true,
+        required: true,
     },
     endDate: {
         type: String,
-        // required: true,
+        required: true,
     },
     checkNode: {
         type: String,
-        // required: true,
     },
     checkReact: {
         type: String,
-        // required: true,
     },
     checkJavascript: {
         type: String,
-        // required: true,
     },
     checkSocket: {
         type: String,
-        // required: true,
     },
     imageProject: {
         type: String,
-        // required: true,
+        required: true,
     },
     duration: {
         type: String,
-        // required: true,
+        required: true,
     },
     agePost: {
         type: Date,
-        // required: true,
+        required: true,
     },
     postAt: {
         type: String,
-        // required: true,
+        required: true,
     },
 })
 

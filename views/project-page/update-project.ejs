@@ -1,15 +1,41 @@
 <!-- @format -->
 <%- contentFor("linkCss") %>
 <link rel="stylesheet" href="/assets/css/myproject.css" />
+<script type="module">
+    const updateInput = document.querySelector("#imageProject")
+    const previewImage = document.querySelector(".preview-image")
+    fileInput(previewImage.src)
+
+    updateInput.addEventListener("change", (event) => {
+        const newImage = URL.createObjectURL(updateInput.files[0])
+        previewImage.src = newImage
+
+    })
+
+    function fileInput(srcImg) {
+        fetch(srcImg).then(response => response.blob()).then(response =>{
+            let sourceImage = srcImg.split("/")
+                sourceImage = sourceImage[sourceImage.length - 1]
+                
+                sourceImage = sourceImage.replaceAll("%20", " ")
+
+            let file = new File([response], sourceImage,{type:"image/jpeg", lastModified:new Date().getTime()}, 'utf-8');
+             let container = new DataTransfer(); 
+            container.items.add(file);
+            updateInput.files = container.files;
+        })
+    }
+</script>
+
 
 <%- contentFor("body") %>
 <div class="container-project">
     <div class="add-project">
         <h1>update Project</h1>
 
-        <% console.log(Project) %>
 
-        <form action="/<%= version  %>/myproject/update/<%= Project._id %>" method="post" enctype="multipart/form-data">
+        <form action="/<%= version  %>/project/<%= Project._id %>?_method=PUT" method="post"
+            enctype="multipart/form-data">
             <div>
                 <label for="name">Project Name</label>
                 <input type="text" name="name" id="project" value="<%= Project.name %>" />
@@ -55,7 +81,11 @@
             </div>
             <div>
                 <label for="imageProject">Upload Image</label>
-                <input type="file" id="image-project" name="imageProject" value="<%= Project.imageProject %>" />
+                <input type="file" id="imageProject" name="imageProject"
+                    data-default-file="/assets/myproject/critiano ronaldo  - 1722619265778.jpeg %>" required />
+                <label for="imageProject" class="preview-image-form ">
+                    <img src="/<%= Project.imageProject  %>" alt="image-before" class="preview-image rounded-2 mt-3">
+                </label>
             </div>
             <div class="container-submit">
                 <input type="submit" value="update" id="submit-project" />

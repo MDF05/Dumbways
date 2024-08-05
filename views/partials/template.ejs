@@ -7,6 +7,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="/bootstrap/bootstrap.css">
     <link rel="stylesheet" href="/assets/css/navbar.css" />
 
     <%- linkCss %>
@@ -23,7 +24,7 @@
                     <a href="/v1/home" class="home">home</a>
                 </li>
                 <li class="grup-1" id="grup-hidden">
-                    <a href="/v1/myproject">My Project</a>
+                    <a href="/v1/project">My Project</a>
                 </li>
                 <li class="grup-1" id="grup-hidden">
                     <a href="/v1/testimoni">Testimoni</a>
@@ -50,7 +51,7 @@
                 <a href="/v1/home">Home</a>
             </li>
             <li>
-                <a href="/v1/myproject">My Project</a>
+                <a href="/v1/project">My Project</a>
             </li>
             <li>
                 <a href="/v1/contact">Contact Me</a>
@@ -63,6 +64,8 @@
 
     <%- body %>
 
+    <script src="/node_modules/bootstrap/js/index.esm.js"></script>
+    <script src="/node_modules/bootstrap/js/index.umd.js"></script>
     <script src="/assets/js/nav.js"></script>
     <%- linkJs %>
 </body>

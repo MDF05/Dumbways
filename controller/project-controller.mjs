@@ -1,35 +1,29 @@
 import createError from "../utils/middleware/throwError.mjs"
-import datePostConvert from "../utils/myproject/datePostConvert.mjs"
-import calculateAgePost from "../utils/myproject/agePost.mjs"
-import durationProject from "../utils/myproject/durationProject.mjs"
-import saveImage from "../utils/myproject/saveImage.mjs"
-import deleteImage from "../utils/myproject/deleteImage.mjs"
+import datePostConvert from "../utils/project-utils/datePostConvert.mjs"
+import calculateAgePost from "../utils/project-utils/agePost.mjs"
+import durationProject from "../utils/project-utils/durationProject.mjs"
+import saveImage from "../utils/project-utils/saveImage.mjs"
+import deleteImage from "../utils/project-utils/deleteImage.mjs"
 import { version } from "../app.mjs"
-import ProjectModel from "../model/myproject-model.mjs"
+import ProjectModel from "../model/project-model.mjs"
 
-async function renderMyprojectPage(req, res, next) {
+async function renderProject(req, res, next) {
     try {
         const Projects = await ProjectModel.find({})
+        Projects?.reverse()
 
-        const messageError = req.flash("error")
-        const messageSucces = req.flash("succes")
-
-        console.log(messageSucces)
-        console.log(messageError)
-
-        res.render("myproject.ejs", {
+        res.render("project-page/project.ejs", {
             layout: "partials/template.ejs",
             Projects,
             version,
-            messageError,
-            messageSucces,
+            calculateAgePost,
         })
     } catch (err) {
         next(createError(400, err.message))
     }
 }
 
-async function postMyProject(req, res, next) {
+async function postProject(req, res, next) {
     try {
         const {
             name,
@@ -43,6 +37,9 @@ async function postMyProject(req, res, next) {
             imageProject,
         } = req.body
 
+        const extensionFile = req.file.mimetype.split("/")[1]
+        const nameFile = `assets/project/${name} - ${new Date().getTime()}.${extensionFile}`
+
         const Project = new ProjectModel({
             name,
             startDate,
@@ -52,41 +49,40 @@ async function postMyProject(req, res, next) {
             checkReact,
             checkJavascript,
             checkSocket,
-            imageProject: `assets/myproject/${name}.jpg`,
+            imageProject: nameFile,
             postAt: datePostConvert(new Date()),
             agePost: new Date(),
             duration: durationProject(startDate, endDate),
         })
 
-        saveImage(req.file.buffer, req.body.name)
+        saveImage(req.file.buffer, nameFile)
         await Project.save()
         // http://localhost:3000/assets/form-image/dava.jpg
 
-        req.flash("succes", "berhasil menambahkan project baru")
-        return res.redirect("/v1/myproject")
+        return res.redirect(`/${version}/project`)
     } catch (err) {
         return next(createError(400, err.message))
     }
 }
 
-async function deleteMyProject(req, res, next) {
+async function deleteProject(req, res, next) {
     try {
         const id = req.params.id
         const findProject = await ProjectModel.findOne({ _id: id })
-        deleteImage(findProject.name)
+        deleteImage(findProject.imageProject)
         await ProjectModel.deleteOne({ _id: id })
-        return res.redirect("/v1/myproject")
+        return res.redirect(`/${version}/project`)
     } catch (err) {
         next(createError(400, err.message))
     }
 }
 
-async function getOneProject(req, res, next) {
+async function updatePage(req, res, next) {
     try {
         const id = req.params.id
         const Project = await ProjectModel.findOne({ _id: id })
 
-        return res.render("update.ejs", {
+        return res.render("project-page/update-project.ejs", {
             layout: "partials/template.ejs",
             Project,
             version,
@@ -109,6 +105,9 @@ async function updateProject(req, res, next) {
             checkReact,
         } = req.body
 
+        const extensionFile = req.file.mimetype.split("/")[1]
+        const nameFile = `assets/myproject/${name} - ${new Date().getTime()}.${extensionFile}`
+
         const updatedProject = {
             name,
             startDate,
@@ -118,21 +117,34 @@ async function updateProject(req, res, next) {
             checkNode,
             checkSocket,
             checkReact,
-            imageProject: `/assets/myproject/${name}.jpg`,
+            imageProject: nameFile,
             duration: durationProject(startDate, endDate),
         }
 
         const id = req.params.id
-        const oldProject = await ProjectModel.findeOne({ _id: id })
-        deleteImage(oldProject.name)
+        const oldProject = await ProjectModel.findOne({ _id: id })
+        deleteImage(oldProject.imageProject)
 
         await ProjectModel.updateOne({ _id: id }, { $set: updatedProject })
-        saveImage(req.file.buffer, name)
+        saveImage(req.file.buffer, nameFile)
 
-        return res.redirect("/v1/myproject")
+        return res.redirect(`/${version}/project`)
     } catch (err) {
         return next(createError(400, err.message))
     }
 }
 
-export { renderMyprojectPage, postMyProject, deleteMyProject, getOneProject, updateProject }
+async function detailProject(req, res, next) {
+    try {
+        const id = req.params.id
+        const Project = await ProjectModel.findOne({ _id: id })
+        return res.render("project-page/detail-project.ejs", {
+            layout: "partials/template.ejs",
+            Project,
+        })
+    } catch (err) {
+        return res.redirect(`/${version}/project`)
+    }
+}
+
+export { renderProject, postProject, deleteProject, updatePage, updateProject, detailProject }
