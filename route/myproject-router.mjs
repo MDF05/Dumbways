@@ -1,5 +1,6 @@
 import {
     deleteMyProject,
+    detailProject,
     getOneProject,
     postMyProject,
     renderMyprojectPage,
@@ -14,6 +15,7 @@ const Router = express.Router()
 
 Router.get("/", renderMyprojectPage)
 Router.get("/update/:id", getOneProject)
+Router.get("/detail/:id", detailProject)
 
 Router.post("/", upload.single("imageProject"), postMyProject)
 Router.post("/delete/:id", deleteMyProject)

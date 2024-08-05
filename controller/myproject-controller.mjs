@@ -122,4 +122,19 @@ async function updateProject(req, res, next) {
     }
 }
 
-export { renderMyprojectPage, postMyProject, deleteMyProject, getOneProject, updateProject }
+async function detailProject(req, res, next) {
+    try {
+        res.render("detail-project.ejs", { layout: "partials/template.ejs", listProject, version })
+    } catch (err) {
+        return res.redirect("/v1/myproject")
+    }
+}
+
+export {
+    renderMyprojectPage,
+    postMyProject,
+    deleteMyProject,
+    getOneProject,
+    updateProject,
+    detailProject,
+}
