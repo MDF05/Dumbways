@@ -5,6 +5,7 @@ import path from "path"
 import ejs from "ejs"
 import expressEjsLayouts from "express-ejs-layouts"
 
+import version from "./utils/deployment/config.mjs"
 import homeRouter from "./route/home-router.mjs"
 import contactRouter from "./route/contact-router.mjs"
 import testimoniRouter from "./route/testimoni-router.mjs"
