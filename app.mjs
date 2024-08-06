@@ -1,5 +1,19 @@
 import express from "express"
+import dotenv from "dotenv"
+import CreateError from "./utils/middleware/throwError.mjs"
+import path from "path"
+import ejs from "ejs"
+import expressEjsLayouts from "express-ejs-layouts"
+
+import homeRouter from "./route/home-router.mjs"
+import contactRouter from "./route/contact-router.mjs"
+import testimoniRouter from "./route/testimoni-router.mjs"
+import myProjectRouter from "./route/myproject-router.mjs"
+
 const app = express()
+const port = process.env.port || 3000
+export const version = "v1"
+dotenv.config()
 
 app.get("/", (req, res, next) => {
     return res.json({
