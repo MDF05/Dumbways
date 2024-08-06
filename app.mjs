@@ -1,4 +1,4 @@
-import express from "express"
+const app = express()
 
 app.get("/", (req, res, next) => {
     return res.json({
@@ -25,4 +25,4 @@ app.use((err, req, res, next) => {
     })
 })
 
-app.listen(3000, () => console.log(`your app listening on http://localhost:${port}`))
+app.listen(3000, () => console.log(`your app listening on http://localhost`))
