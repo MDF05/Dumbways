@@ -1,7 +1,7 @@
 {
   "name": "dumbways-stage-1",
   "version": "1.0.0",
-  "main": "app.js",
+  "main": "app.mjs",
   "type": "module",
   "scripts": {
     "start": "node app.mjs",
