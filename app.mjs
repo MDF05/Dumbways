@@ -23,7 +23,6 @@ app.set("view engine", ejs)
 app.set("views", "views")
 app.set("view cache", true)
 
-
 app.use(`/${version}/home`, homeRouter)
 app.use(`/${version}/contact`, contactRouter)
 app.use(`/${version}/testimoni`, testimoniRouter)
@@ -55,4 +54,4 @@ app.use((err, req, res, next) => {
     })
 })
 
-app.listen(port, () => console.log(`your app listening on http://localhost:${port}`))
+app.listen(8000, () => console.log(`your app listening on http://localhost:${port}`))
