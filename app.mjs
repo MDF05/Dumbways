@@ -3,7 +3,6 @@ import dotenv from "dotenv"
 import CreateError from "./utils/middleware/throwError.mjs"
 import path from "path"
 import expressEjsLayouts from "express-ejs-layouts"
-import versiApp from "./utils/deployment/config.mjs"
 
 
 dotenv.config()
@@ -23,7 +22,6 @@ app.get("/", (req, res, next) => {
     return res.json({
         author: "muhammad dava fahreza",
         succes: true,
-        versiApp,
     })
 })
 
