@@ -7,7 +7,7 @@ import expressEjsLayouts from "express-ejs-layouts"
 dotenv.config()
 const app = express()
 const port = process.env.port || 3000
-const versionApp = "v1"
+const version = "v1"
 
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
@@ -22,7 +22,7 @@ app.get("/", (req, res, next) => {
     return res.json({
         author: "muhammad dava fahreza",
         succes: true,
-        versionApp
+        version
     })
 })
 
