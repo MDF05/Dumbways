@@ -5,7 +5,6 @@ import path from "path"
 import ejs from "ejs"
 import expressEjsLayouts from "express-ejs-layouts"
 
-import version from "./utils/deployment/config.mjs"
 import homeRouter from "./route/home-router.mjs"
 import contactRouter from "./route/contact-router.mjs"
 import testimoniRouter from "./route/testimoni-router.mjs"
@@ -30,11 +29,6 @@ app.get("/", (req, res, next) => {
     })
 })
 
-app.use(`/${version}/home`, homeRouter)
-app.use(`/${version}/contact`, contactRouter)
-app.use(`/${version}/testimoni`, testimoniRouter)
-app.use(`/${version}/myproject`, myProjectRouter)
-
 app.use("/", (req, res, next) => {
     return next(CreateError(404, "page not found"))
 })
@@ -53,4 +47,4 @@ app.use((err, req, res, next) => {
     })
 })
 
-app.listen(8000, () => console.log(`your app listening on http://localhost:${port}`))
+app.listen(port, () => console.log(`your app listening on http://localhost:${port}`))
