@@ -23,10 +23,6 @@ app.set("view engine", ejs)
 app.set("views", "views")
 app.set("view cache", true)
 
-app.use(`/${version}/home`, homeRouter)
-app.use(`/${version}/contact`, contactRouter)
-app.use(`/${version}/testimoni`, testimoniRouter)
-app.use(`/${version}/myproject`, myProjectRouter)
 
 app.get("/", (req, res, next) => {
     return res.json({
@@ -35,6 +31,12 @@ app.get("/", (req, res, next) => {
         version: version,
     })
 })
+
+app.use(`/${version}/home`, homeRouter)
+app.use(`/${version}/contact`, contactRouter)
+app.use(`/${version}/testimoni`, testimoniRouter)
+app.use(`/${version}/myproject`, myProjectRouter)
+
 
 app.use("/", (req, res, next) => {
     return next(CreateError(404, "page not found"))
