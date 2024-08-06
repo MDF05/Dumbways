@@ -7,7 +7,7 @@ import expressEjsLayouts from "express-ejs-layouts"
 dotenv.config()
 const app = express()
 const port = process.env.port || 3000
-export const version = "v1"
+const version = "v1"
 
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
@@ -43,5 +43,7 @@ app.use((err, req, res, next) => {
         succes,
     })
 })
+
+export {version}
 
 app.listen(port, () => console.log(`your app listening on http://localhost:${port}`))
