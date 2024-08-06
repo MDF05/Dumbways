@@ -12,7 +12,7 @@ import myProjectRouter from "./route/myproject-router.mjs"
 dotenv.config()
 const app = express()
 const port = process.env.port || 3000
-export const versionApp = "v1"
+const versionApp = "v1"
 
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
@@ -32,10 +32,6 @@ app.get("/", (req, res, next) => {
 })
 
 
-app.use(`/${versionApp}/home`, homeRouter)
-app.use(`/${versionApp}/contact`, contactRouter)
-app.use(`/${versionApp}/testimoni`, testimoniRouter)
-app.use(`/${versionApp}/myproject`, myProjectRouter)
 
 
 app.use("/", (req, res, next) => {
