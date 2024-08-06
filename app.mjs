@@ -1,8 +1,5 @@
 import express from "express"
 import dotenv from "dotenv"
-import path from "path"
-import ejs from "ejs"
-import expressEjsLayouts from "express-ejs-layouts"
 
 dotenv.config()
 const app = express()
