@@ -5,7 +5,6 @@ import path from "path"
 import ejs from "ejs"
 import expressEjsLayouts from "express-ejs-layouts"
 
-dotenv.config()
 const app = express()
 export const version = "v1"
 
