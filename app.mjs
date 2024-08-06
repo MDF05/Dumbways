@@ -12,7 +12,6 @@ import myProjectRouter from "./route/myproject-router.mjs"
 
 dotenv.config()
 const app = express()
-const port = process.env.port || 3000
 export const version = "v1"
 
 app.get("/", (req, res, next) => {
