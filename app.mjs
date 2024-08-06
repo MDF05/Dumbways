@@ -1,22 +1,20 @@
 import express from "express"
 import dotenv from "dotenv"
 import CreateError from "./utils/middleware/throwError.mjs"
-import path from "path"
 import expressEjsLayouts from "express-ejs-layouts"
+import path from "path"
 
+app.use(express.urlencoded({ extended: true }))
+app.use(express.json())
+app.use(expressEjsLayouts)
+app.use("/assets", express.static("assets"))
+app.set("view engine", ejs)
+app.set("views", "views")
+app.set("view cache", true)
 
 dotenv.config()
 const app = express()
 const port = process.env.port || 3000
-
-
-
-app.use(express.urlencoded({ extended: true }))
-app.use(express.json())
-app.use("/assets", express.static("assets"))
-app.set("view engine", "ejs")
-app.set("views", "views")
-app.set("view cache", true)
 
 app.get("/", (req, res, next) => {
     return res.json({
