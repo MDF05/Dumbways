@@ -14,6 +14,6 @@ app.get("/", (req, res, next) => {
     })
 })
 
-app.listen(8000, () => {
+app.listen(3000, () => {
     console.log("your app is running ")
 })
