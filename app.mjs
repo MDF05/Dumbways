@@ -8,9 +8,8 @@ const port = process.env.port || 3000
 
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
-app.use(expressEjsLayouts)
 app.use("/assets", express.static("assets"))
-app.set("view engine", ejs)
+app.set("view engine", "ejs")
 app.set("views", "views")
 app.set("view cache", true)
 
