@@ -44,6 +44,5 @@ app.use((err, req, res, next) => {
     })
 })
 
-export {version}
 
 app.listen(port, () => console.log(`your app listening on http://localhost:${port}`))
