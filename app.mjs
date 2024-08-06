@@ -12,7 +12,6 @@ import myProjectRouter from "./route/myproject-router.mjs"
 dotenv.config()
 const app = express()
 const port = process.env.port || 3000
-const version = process.env.version 
 
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
@@ -26,15 +25,14 @@ app.set("view cache", true)
 app.get("/", (req, res, next) => {
     return res.json({
         author: "muhammad dava fahreza",
-        succes: true,
-        version 
+        succes: true, 
     })
 })
 
-app.use(`/${version}/home`, homeRouter)
-app.use(`/${version}/contact`, contactRouter)
-app.use(`/${version}/testimoni`, testimoniRouter)
-app.use(`/${version}/myproject`, myProjectRouter)
+app.use(`/home`, homeRouter)
+app.use(`/contact`, contactRouter)
+app.use(`//testimoni`, testimoniRouter)
+app.use(`//myproject`, myProjectRouter)
 
 app.use("/", (req, res, next) => {
     return next(CreateError(404, "page not found"))

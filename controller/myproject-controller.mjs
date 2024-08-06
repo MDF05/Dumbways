@@ -4,7 +4,6 @@ import calculateAgePost from "../utils/myproject/agePost.mjs"
 import durationProject from "../utils/myproject/durationProject.mjs"
 import saveImage from "../utils/myproject/saveImage.mjs"
 import deleteImage from "../utils/myproject/deleteImage.mjs"
-import { version } from "../app.mjs"
 
 let listProject = []
 
@@ -48,7 +47,7 @@ async function postMyProject(req, res, next) {
         saveImage(req.file.buffer, req.body.name)
         // http://localhost:3000/assets/form-image/dava.jpg
 
-        return res.redirect("/v1/myproject")
+        return res.redirect("/myproject")
     } catch (err) {
         return next(createError(400, err.message))
     }
@@ -59,7 +58,7 @@ async function deleteMyProject(req, res, next) {
         const id = req.params.id
         deleteImage(listProject[id].name)
         delete listProject[id]
-        return res.redirect("/v1/myproject")
+        return res.redirect("/myproject")
     } catch (err) {
         next(createError(400, err.message))
     }
@@ -116,7 +115,7 @@ async function updateProject(req, res, next) {
         }
 
         listProject[id] = updatedProject
-        return res.redirect("/v1/myproject")
+        return res.redirect("/myproject")
     } catch (err) {
         return next(createError(400, err.message))
     }
@@ -126,7 +125,7 @@ async function detailProject(req, res, next) {
     try {
         res.render("detail-project.ejs", { layout: "partials/template.ejs", listProject, version })
     } catch (err) {
-        return res.redirect("/v1/myproject")
+        return res.redirect("/myproject")
     }
 }
 
