@@ -1,10 +1,10 @@
 import express from "express"
 import dotenv from "dotenv"
-import CreateError from "./utils/middleware/throwError.mjs"
 import path from "path"
 import ejs from "ejs"
 import expressEjsLayouts from "express-ejs-layouts"
 
+dotenv.config()
 const app = express()
 export const version = "v1"
 
