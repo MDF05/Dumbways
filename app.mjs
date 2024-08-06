@@ -4,11 +4,6 @@ import CreateError from "./utils/middleware/throwError.mjs"
 import path from "path"
 import expressEjsLayouts from "express-ejs-layouts"
 
-import homeRouter from "./route/home-router.mjs"
-import contactRouter from "./route/contact-router.mjs"
-import testimoniRouter from "./route/testimoni-router.mjs"
-import myProjectRouter from "./route/myproject-router.mjs"
-
 dotenv.config()
 const app = express()
 const port = process.env.port || 3000
@@ -30,9 +25,6 @@ app.get("/", (req, res, next) => {
         versionApp
     })
 })
-
-
-
 
 app.use("/", (req, res, next) => {
     return next(CreateError(404, "page not found"))
