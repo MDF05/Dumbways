@@ -6,7 +6,7 @@ const app = express()
 export const version = "v1"
 
 app.get("/", (req, res, next) => {
-    return res.json({
+    res.json({
         author: "muhammad dava fahreza",
         succes: true,
         version,
