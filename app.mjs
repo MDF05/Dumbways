@@ -7,7 +7,7 @@ import expressEjsLayouts from "express-ejs-layouts"
 import homeRouter from "./route/home-router.mjs"
 import contactRouter from "./route/contact-router.mjs"
 import testimoniRouter from "./route/testimoni-router.mjs"
-import myProjectRouter from "./route/myproject-router.mjs"
+import projectRouter from "./route/project-router.mjs"
 
 dotenv.config()
 const app = express()
@@ -21,18 +21,17 @@ app.set("view engine", "ejs")
 app.set("views", "views")
 app.set("view cache", true)
 
-
 app.get("/", (req, res, next) => {
     return res.json({
         author: "muhammad dava fahreza",
-        succes: true, 
+        succes: true,
     })
 })
 
-app.use(`/home`, homeRouter)
-app.use(`/contact`, contactRouter)
-app.use(`//testimoni`, testimoniRouter)
-app.use(`//myproject`, myProjectRouter)
+app.use("/home", homeRouter)
+app.use("/contact", contactRouter)
+app.use("/testimoni", testimoniRouter)
+app.use("/project", projectRouter)
 
 app.use("/", (req, res, next) => {
     return next(CreateError(404, "page not found"))
@@ -51,6 +50,5 @@ app.use((err, req, res, next) => {
         succes,
     })
 })
-
 
 app.listen(port, () => console.log(`your app listening on http://localhost:${port}`))

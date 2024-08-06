@@ -5,7 +5,7 @@ import {
     postMyProject,
     renderMyprojectPage,
     updateProject,
-} from "../controller/myproject-controller.mjs"
+} from "../controller/project-controller.mjs"
 import express from "express"
 import multer from "multer"
 
