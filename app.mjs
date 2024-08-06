@@ -3,11 +3,11 @@ import dotenv from "dotenv"
 import CreateError from "./utils/middleware/throwError.mjs"
 import path from "path"
 import expressEjsLayouts from "express-ejs-layouts"
-import version from "./utils/variabel_global/variabel.mjs"
 
 dotenv.config()
 const app = express()
 const port = process.env.port || 3000
+const version = process.env.version 
 
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
@@ -22,7 +22,7 @@ app.get("/", (req, res, next) => {
     return res.json({
         author: "muhammad dava fahreza",
         succes: true,
-        version
+        version 
     })
 })
 
