@@ -17,7 +17,6 @@ app.get("/", (req, res, next) => {
     return res.json({
         author: "muhammad dava fahreza",
         succes: true,
-        version: version,
     })
 })
 
