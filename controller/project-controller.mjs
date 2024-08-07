@@ -9,14 +9,14 @@ import ProjectModel from "../model/project-model.mjs"
 async function renderProject(req, res, next) {
     try {
         const Projects = await ProjectModel.find({})
-        Projects?.reverse()
+        // Projects?.reverse()
 
         // res.render("project-page/project.ejs", {
         //     layout: "partials/template.ejs",
         //     Projects,
         //     calculateAgePost,
         // })
-        res.json({ test: "tet" })
+        res.json({ test: "tet", Projects })
     } catch (err) {
         next(createError(400, err.message))
     }
