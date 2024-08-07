@@ -12,7 +12,7 @@
 
     <div class="add-project">
         <h1>add my project</h1>
-        <form action="/v1/project" method="post" enctype="multipart/form-data">
+        <form action="/project" method="post" enctype="multipart/form-data">
             <div>
                 <label for="name">Project Name</label>
                 <input type="text" name="name" id="project" />
@@ -75,13 +75,13 @@
             <div class="container-card-project">
                 <div class="card-project">
                     <div class="card-image">
-                        <a href="/<%= version  %>/project/detail/<%= project._id  %>">
+                        <a href="/project/detail/<%= project._id  %>">
                             <img src="/<%= project.imageProject %>" alt="gambar dummy" class="link-detail"
                                 class="link-detail" list="<%= index %>" />
                         </a>
                     </div>
                     <div class="header-card">
-                        <a href="/<%= version  %>/project/detail/<%= project._id  %> %>" class="link-detail">
+                        <a href="/project/detail/<%= project._id  %> %>" class="link-detail">
                             <h4 class="link-detail" list=${index}>
                                 <%= project.name %>
                             </h4>
@@ -126,12 +126,12 @@
                         </div>
                     </div>
                     <div class="navigasi-card">
-                        <a href="/<%= version  %>/project/<%= project._id %>">
+                        <a href="/project/<%= project._id %>">
                             <button type="button" class="edit">edit</button>
                         </a>
-                        <form method="post" action="/v1/project/<%= project._id %>?_method=DELETE"> <button
-                                type="submit" onclick="return confirm('apakah kamu yakin menghapus project ini')"
-                                list=<%=index %> class="delete">delete</button>
+                        <form method="post" action="/project/<%= project._id %>?_method=DELETE"> <button type="submit"
+                                onclick="return confirm('apakah kamu yakin menghapus project ini')" list=<%=index %>
+                                class="delete">delete</button>
                         </form>
                     </div>
                 </div>

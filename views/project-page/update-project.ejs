@@ -34,8 +34,7 @@
         <h1>update Project</h1>
 
 
-        <form action="/<%= version  %>/project/<%= Project._id %>?_method=PUT" method="post"
-            enctype="multipart/form-data">
+        <form action="/project/<%= Project._id %>?_method=PUT" method="post" enctype="multipart/form-data">
             <div>
                 <label for="name">Project Name</label>
                 <input type="text" name="name" id="project" value="<%= Project.name %>" />

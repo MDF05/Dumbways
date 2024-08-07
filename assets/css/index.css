@@ -84,7 +84,7 @@ body {
     display: flex;
     text-decoration: none;
     background-color: black;
-    color: white;
+    color: white !important;
     width: 100px;
     height: 30px;
     justify-content: center;
@@ -99,6 +99,7 @@ img.unduh-image {
 
 /* a.contact-cv {} */
 
+
 .contact-container {
     display: flex;
     align-items: center;
@@ -106,9 +107,14 @@ img.unduh-image {
     margin-bottom: 50px;
 }
 
+.container-teks-image h1 {
+    font-size: 5vmin;
+    font-weight: bold;
+}
+
 .container-teks-image {
     text-align: center;
-    font-size: 1vmax;
+    font-size: 3vmin;
 }
 
 a.my-cv {

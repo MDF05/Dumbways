@@ -7,31 +7,36 @@ import mongoose from "mongoose"
 import session from "express-session"
 import cookieParser from "cookie-parser"
 import methodOverride from "method-override"
+import flash from "express-flash-message"
+import path, { dirname } from "node:path"
+import { fileURLToPath } from "node:url"
 
 import homeRouter from "./route/home-router.mjs"
 import contactRouter from "./route/contact-router.mjs"
 import testimoniRouter from "./route/testimoni-router.mjs"
 import myProjectRouter from "./route/project-router.mjs"
 
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = dirname(__filename)
+
 dotenv.config()
 const app = express()
 const port = process.env.port || 3000
-export const version = "v1"
 
 app.use(methodOverride("_method"))
 app.use(cookieParser())
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 app.use(expressEjsLayouts)
-app.use("/assets", express.static("assets"))
-app.use("/bootstrap", express.static("node_modules/bootstrap/dist/css"))
+app.use("/assets", express.static(path.resolve(__dirname, "assets")))
+app.use("/bootstrap", express.static(path.resolve(__dirname, "node_modules/bootstrap/dist/css")))
 app.set("view engine", ejs)
-app.set("views", "views")
+app.set("views", path.resolve(__dirname, "views"))
 app.set("view cache", true)
 
 app.use(
     session({
-        secret: "dumbwa cat",
+        secret: "rahasia bangetsss",
         resave: true,
         saveUninitialized: true,
         cookie: {
@@ -41,16 +46,15 @@ app.use(
     }),
 )
 
-app.use(`/${version}/home`, homeRouter)
-app.use(`/${version}/contact`, contactRouter)
-app.use(`/${version}/testimoni`, testimoniRouter)
-app.use(`/${version}/project`, myProjectRouter)
+app.use("/home", homeRouter)
+app.use("/contact", contactRouter)
+app.use("/testimoni", testimoniRouter)
+app.use("/project", myProjectRouter)
 
 app.get("/", (req, res, next) => {
     return res.json({
         author: "muhammad dava fahreza",
         succes: true,
-        version: version,
     })
 })
 
