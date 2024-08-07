@@ -1,10 +1,11 @@
 {
   "name": "dumbways-stage-1",
   "version": "1.0.0",
-  "main": "app.js",
+  "main": "app.mjs",
   "type": "module",
   "scripts": {
-    "live": "nodemon app.js",
+    "start": "node app.mjs",
+    "live": "nodemon app.mjs",
     "watch": "nodemon --ext .mjs,.js,.ejs,.scss,.css app.mjs"
   },
   "repository": "https://github.com/MDF05/Dumbways.git",
