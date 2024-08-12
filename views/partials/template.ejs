@@ -14,35 +14,61 @@
 </head>
 
 <body>
-    <nav>
+    <nav class=" m-0 p-0">
         <div class="left">
             <ul>
                 <li class="li-image-dumbways">
                     <img src="/assets/image/dumbways.png" alt="logo-dumbways" class="image-dumbways" />
                 </li>
                 <li class="grup-1" id="grup-hidden">
-                    <a href="/home" class="home">home</a>
+                    <a href="/home" class="home <%= pageActive == "home" ? "pageActive" : "" %>">home</a>
                 </li>
                 <li class="grup-1" id="grup-hidden">
-                    <a href="/project">My Project</a>
+                    <a href="/project" class="<%= pageActive == "project" ? "pageActive" : "" %>">My Project</a>
                 </li>
                 <li class="grup-1" id="grup-hidden">
-                    <a href="/testimoni">Testimoni</a>
+                    <a href="/testimoni" class="<%= pageActive == "testimoni" ? "pageActive" : "" %>">
+                        Testimoni
+                    </a>
+                </li>
+                <li class="grup-1" id="grup-hidden">
+                    <a href="/contact" class="<%= pageActive == "contact" ? "pageActive" : "" %>">contact me</a>
                 </li>
             </ul>
         </div>
-        <div class="right grup-1" id="grup-hidden">
-            <a href="/contact">contact me</a>
-        </div>
-        <div class="container-hamburger">
-            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 24 24">
-                <path d="M2 11H22V13H2zM2 5H22V7H2zM2 17H22V19H2z"></path>
-            </svg>
-            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 24 24"
-                class="hidden">
-                <path d="M11 0.7H13V23.3H11z" transform="rotate(-45.001 12 12)"></path>
-                <path d="M0.7 11H23.3V13H0.7z" transform="rotate(-45.001 12 12)"></path>
-            </svg>
+        <div class="grup-1 mt-3 d-flex flex-row align-items-center gap-3">
+            <div class="dropdown">
+                <button class="btn dropdown-toggle bg-transparent" type="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    <img src="/<%= session?.user?.imageUrl || 'assets/image/default-avatar.png'  %>" alt="profile"
+                        class="rounded-5" style="width: 30px;">
+                </button>
+                <ul class="dropdown-menu">
+                    <li class="px-2">
+                        <h5><I><b><%= session?.user?.name  %> </b> </I></h5>
+                    </li>
+                    <li>
+                        <a class="dropdown-item <%= pageActive == 'edit' ? 'pageActive' : '' %> " href="/user/edit">edit
+                            profile</a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="/user/logout">log out</a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="/user/change-password"> change password</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="container-hamburger">
+                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 24 24">
+                    <path d="M2 11H22V13H2zM2 5H22V7H2zM2 17H22V19H2z"></path>
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 24 24"
+                    class="hidden">
+                    <path d="M11 0.7H13V23.3H11z" transform="rotate(-45.001 12 12)"></path>
+                    <path d="M0.7 11H23.3V13H0.7z" transform="rotate(-45.001 12 12)"></path>
+                </svg>
+            </div>
         </div>
     </nav>
     <div class="container-nav-hamburger">
@@ -62,10 +88,14 @@
         </ul>
     </div>
 
-    <%- body %>
+    <%- body  %>
 
-    <script src="/node_modules/bootstrap/js/index.esm.js"></script>
-    <script src="/node_modules/bootstrap/js/index.umd.js"></script>
+    <script src=" https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+        integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous">
+    </script>
     <script src="/assets/js/nav.js"></script>
     <%- linkJs %>
 </body>

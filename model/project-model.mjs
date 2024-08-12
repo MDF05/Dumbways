@@ -45,6 +45,10 @@ const ProjectSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    userid: {
+        type: String,
+        required: true,
+    },
 })
 
 const ProjectModel = new mongoose.model("project", ProjectSchema)

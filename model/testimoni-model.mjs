@@ -1,6 +1,6 @@
 import mongoose from "mongoose"
 
-const testimoniSchema = new mongoose.Schema({
+const TestimoniSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true,
@@ -9,16 +9,24 @@ const testimoniSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    image: {
+    imageUrl: {
         type: String,
         required: true,
     },
-    stars: {
+    star: {
         type: Number,
+        required: true,
+    },
+    createAt: {
+        type: Date,
+        required: true,
+    },
+    userId: {
+        type: mongoose.Schema.Types.ObjectId,
         required: true,
     },
 })
 
-const testimoniModel = new mongoose.model("testimoni", testimoniSchema)
+const TestimoniModel = new mongoose.model("testimoni", TestimoniSchema)
 
-export default testimoniModel
+export default TestimoniModel

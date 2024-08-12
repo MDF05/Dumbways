@@ -1,0 +1,138 @@
+<%- contentFor("linkCss") %>
+
+
+
+
+<%- contentFor("body")  %>
+<% if(messages?.danger) { %>
+<div class="alert alert-danger alert-dismissible fade show position-fixed w-100 top-0" role="alert"
+    style="z-index: 10000;">
+    <%messages.danger.forEach(msg => { %>
+    <%= msg %>
+    <% })  %>
+    <button type=" button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+<% } %>
+
+
+<% if(messages?.succes) { %>
+<div class="alert alert-success alert-dismissible fade show position-fixed w-100 top-0" role="alert"
+    style="z-index: 10000;">
+    <%messages.succes.forEach(msg => { %>
+    <%= msg %>
+    <% })  %>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+<%  }%>
+
+<div class="container-md min-vh-100 justify-content-center align-items-center mt-5 py-2">
+    <div class="d-flex justify-content-center">
+        <h1>Edit Profile</h1>
+    </div>
+    <form action="/user/edit/<%= session.user._id  %>?_method=PUT" method="post" enctype="multipart/form-data"
+        class="form-container form-control w-100 shadow d-flex flex-column flex-wrap flex-md-row">
+        <div class="container col">
+            <div class="d-flex flex-column mb-2 gap-2">
+                <label for="name">create at </label>
+                <input type="text" id="name" name="name" value="<%= createAt %> - <%= hours  %>:<%= minutes  %> "
+                    disabled>
+            </div>
+            <div class="d-flex flex-column mb-2 gap-2">
+                <label for="name">name </label>
+                <input type="text" id="name" name="name" value="<%= session.user.name  %>">
+            </div>
+            <div class="d-flex flex-column mb-2 gap-2">
+                <label for="email">email </label>
+                <input type="email" id="email" name="email" value="<%= session.user.email  %>">
+            </div>
+            <div class="d-flex flex-column mb-2 gap-2">
+                <label for="image">image </label>
+                <input type="file" id="image" class="bg-white border border-black" name="image">
+                <img src="/<%= session.user.imageUrl  %>" alt="user-profile" class="w-50 user-image">
+            </div>
+        </div>
+        <div class="container col">
+            <div class="d-flex flex-column mb-2 gap-2">
+                <label for="id-1">address</label>
+                <input type="text" id="id-1" name="address" value="<%= session.user.address  %>">
+            </div>
+            <div class="d-flex flex-column mb-2 gap-2">
+                <label for="id-2">gender</label>
+                <select name="gender" id="id-2">
+                    <option value="" <%= session?.user.gender == ""  ? "selected" : "" %>></option>
+                    <option value="man" <%= session?.user.gender == "man"  ? "selected" : "" %>>man</option>
+                    <option value="women" <%= session?.user.gender == "women"  ? "selected" : "" %>>women</option>
+                </select>
+            </div>
+            <div class="d-flex flex-column mb-2 gap-2">
+                <label for="id-3">date of birth</label>
+                <input type="date" id="id-3" name="dateOfBirth" value="<%= defaultBirth  %>">
+            </div>
+            <div class="d-flex flex-column mb-2 gap-2">
+                <label for="id-4">hobby</label>
+                <input type="text" id="id-4" name="hobby" value="<%= session.user.hobby  %>">
+            </div>
+            <div class="d-flex flex-column mb-2 gap-2">
+                <label for="id-5">role</label>
+                <select name="role" id="id-5">
+                    <option value="" <%= session?.user.role == ""  ? "selected" : "" %>></option>
+                    <option value="fullstack-developer"
+                        <%= session?.user.role == "fullstack-developer"  ? "selected" : "" %>>
+                        fullstack developer
+                    </option>
+                    <option value="frontend-developer"
+                        <%= session?.user.role == "frontend-developer"  ? "selected" : "" %>>
+                        frontend-developer
+                    </option>
+                    <option value="backend-developer"
+                        <%= session?.user.role == "backend-developer"  ? "selected" : "" %>>
+                        backend-developer
+                    </option>
+                </select>
+                <div class="d-flex flex-column mb-2 gap-2">
+                    <label for="description">description</label>
+                    <textarea name="description" id="description" style="width: 100%; height: 250px; resize: none;">
+                        <%= session?.user.description  %>
+                    </textarea>
+                </div>
+            </div>
+        </div>
+        <div class="d-flex mt-5 justify-content-end pe-2 w-100">
+            <input type="submit" value="update" class="btn  btn-dark btn-outline-success text-white">
+        </div>
+    </form>
+</div>
+
+
+<%- contentFor("linkJs") %>
+<script>
+    setTimeout(() => document.querySelector(".alert").classList.add("d-none"), 4000)
+
+
+    const updateInput = document.querySelector("#image")
+    const userImage = document.querySelector(".user-image")
+    fileInput(userImage.src)
+
+    updateInput.addEventListener("change", (event) => {
+        const newImage = URL.createObjectURL(updateInput.files[0])
+        userImage.src = newImage
+
+    })
+
+    function fileInput(srcImg) {
+        fetch(srcImg).then(response => response.blob()).then(response => {
+            let sourceImage = srcImg.split("/")
+            sourceImage = sourceImage[sourceImage.length - 1]
+
+            sourceImage = sourceImage.replaceAll("%20", " ")
+
+            let file = new File([response], sourceImage, {
+                type: "image/jpeg",
+                lastModified: new Date().getTime()
+            }, 'utf-8');
+            let container = new DataTransfer();
+            container.items.add(file);
+            updateInput.files = container.files;
+        })
+    }
+</script>

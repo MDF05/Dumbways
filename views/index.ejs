@@ -1,68 +1,77 @@
 <!-- @format -->
 <%- contentFor("linkCss") %>
 <link rel="stylesheet" href="../../assets/css/index.css" />
+<script>
+    setTimeout(() => document.querySelector(".alert").classList.add("d-none"), 4000)
+</script>
 
-<%- contentFor("body") %>
+<%- contentFor("body")  %>
+
+<% if(messages?.danger) { %>
+<div class="alert alert-danger alert-dismissible fade show position-fixed w-100 top-0" role="alert"
+    style="z-index: 10000;">
+    <%messages.danger.forEach(msg => { %>
+    <%= msg %>
+    <% })  %>
+    <button type=" button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+<% } %>
+
+
+<% if(messages?.succes) { %>
+<div class="alert alert-success alert-dismissible fade show position-fixed w-100 top-0" role="alert"
+    style="z-index: 10000;">
+    <%messages.succes.forEach(msg => { %>
+    <%= msg %>
+    <% })  %>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+<%  }%>
+
 <div class="parent-card">
     <div class="card-profile">
         <div class="left-card">
-            <h1>Welcome To My Personal Web</h1>
+            <h2 class="mb-5">Welcome To My Personal Web</h2>
             <p>
                 Hallo, perkenalkan nama saya
-                <strong>MUHAMMAD DAVA FAHREZA</strong> saya dari Provinsi Aceh saat ini saya berumur
-                20 tahun dan saya adalah peserta bootcamp Fullstack developer dari dumbways di bacth
-                56, dan saya sangat senang mengikuti program bootcamp fullstack developer karena
-                banyak mentor yang berpengelaman dan berwawasan luas yang akan mengajari saya untuk
-                menjadi seorang fullstack developer yang handal dan dapat bersaing di industri,
+                <strong><%= session.user.name %></strong> , <%= session.user.description  %>
             </p>
 
             <div class="contact-container">
                 <a href="contact" class="contact">contact me</a>
                 <a href="/assets/pdf/my-cv.pdf" download="Muhammad-Dava-FAhreza" class="my-cv">
                     download my cv
-                    <img
-                        src="https://img.icons8.com/?size=100&id=hB6XkFbI9fP4&format=png&color=000000"
-                        alt="unduh_CV_saya"
-                        alt="unduh_image"
-                        class="unduh-image" />
+                    <img src="https://img.icons8.com/?size=100&id=hB6XkFbI9fP4&format=png&color=000000"
+                        alt="unduh_CV_saya" alt="unduh_image" class="unduh-image" />
                 </a>
             </div>
 
             <div class="social-media-container">
                 <a
                     href="https://www.linkedin.com/in/muhammad-dava-589008241?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">
-                    <img
-                        src="https://img.icons8.com/?size=100&id=60444&format=png&color=000000"
-                        alt="linkedin"
+                    <img src="https://img.icons8.com/?size=100&id=60444&format=png&color=000000" alt="linkedin"
                         class="sm-icon" />
                 </a>
-                <a
-                    href="https://www.instagram.com/muhammaddavafahreza?utm_source=qr&igsh=MXZjdjllenI2MW9hcw==">
-                    <img
-                        src="https://img.icons8.com/?size=100&id=dz63urxyxSdO&format=png&color=000000"
-                        alt="instagram"
+                <a href="https://www.instagram.com/muhammaddavafahreza?utm_source=qr&igsh=MXZjdjllenI2MW9hcw==">
+                    <img src="https://img.icons8.com/?size=100&id=dz63urxyxSdO&format=png&color=000000" alt="instagram"
                         class="sm-icon" />
                 </a>
                 <a href="https://www.facebook.com/mhddava.fahreza?mibextid=ZbWKwL">
-                    <img
-                        src="https://img.icons8.com/?size=100&id=118466&format=png&color=000000"
-                        alt="facebook"
+                    <img src="https://img.icons8.com/?size=100&id=118466&format=png&color=000000" alt="facebook"
                         class="sm-icon" />
                 </a>
                 <a href="https://x.com/mdavafahreza?t=UPpvDdPlcupPh3a-Ir9WXw&s=09">
-                    <img
-                        src="https://img.icons8.com/?size=100&id=bxZLggOb1L5G&format=png&color=000000"
-                        alt="twitter"
+                    <img src="https://img.icons8.com/?size=100&id=bxZLggOb1L5G&format=png&color=000000" alt="twitter"
                         class="sm-icon" />
                 </a>
             </div>
         </div>
         <div class="right-card">
             <div class="card-image">
-                <img src="/assets/image/profile.png" alt="profile" />
+                <img src="<%= session.user.imageUrl  %>" alt="profile" />
                 <div class="container-teks-image">
-                    <h1>Muhammad Dava Fahreza</h1>
-                    <p>FullStack Developer</p>
+                    <h1><%= session.user.name  %></h1>
+                    <p><%= session.user.role  %></p>
                 </div>
             </div>
         </div>

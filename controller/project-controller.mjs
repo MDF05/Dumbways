@@ -8,21 +8,26 @@ import ProjectModel from "../model/project-model.mjs"
 
 async function renderProject(req, res, next) {
     try {
-        const Projects = await ProjectModel.find()
+        const user = req.session.user.user
+        const Projects = (await ProjectModel.find({ userid: user._id })) || []
         Projects?.reverse()
 
+        const session = req.session.user
         res.render("project-page/project.ejs", {
             layout: "partials/template.ejs",
             Projects,
             calculateAgePost,
+            pageActive: "project",
+            session,
         })
     } catch (err) {
-        next(createError(400, err.message))
+        res.redirect("project")
     }
 }
 
 async function postProject(req, res, next) {
     try {
+        const user = req.session.user.user
         const {
             name,
             startDate,
@@ -52,14 +57,17 @@ async function postProject(req, res, next) {
             postAt: datePostConvert(new Date()),
             agePost: new Date(),
             duration: durationProject(startDate, endDate),
+            userid: user._id,
         })
 
         saveImage(req.file.buffer, "../../assets/project/", nameFile)
         await Project.save()
 
-        return res.redirect(`/project`)
+        req.flash("succes", "succesfully add new project")
+        return res.redirect("/project")
     } catch (err) {
-        return next(createError(400, err.message))
+        req.flash("danger", err.message)
+        return res.redirect("project")
     }
 }
 
@@ -69,9 +77,11 @@ async function deleteProject(req, res, next) {
         const findProject = await ProjectModel.findOne({ _id: id })
         deleteImage(findProject.imageProject)
         await ProjectModel.deleteOne({ _id: id })
-        return res.redirect(`/project`)
+        req.flash("succes", "project has been deleted")
+        return res.redirect("/project")
     } catch (err) {
-        next(createError(400, err.message))
+        req.flash("danger", err.message)
+        return res.redirect("project")
     }
 }
 
@@ -80,12 +90,15 @@ async function updatePage(req, res, next) {
         const id = req.params.id
         const Project = await ProjectModel.findOne({ _id: id })
 
+        const session = req.session.user
         return res.render("project-page/update-project.ejs", {
             layout: "partials/template.ejs",
             Project,
+            pageActive: "project",
+            session,
         })
     } catch (err) {
-        return next(createError(400, err.message))
+        return res.redirect("project")
     }
 }
 
@@ -104,6 +117,7 @@ async function updateProject(req, res, next) {
 
         const extensionFile = req.file.mimetype.split("/")[1]
         const nameFile = `${name} - ${new Date().getTime()}.${extensionFile}`
+        const imageUrl = `assets/project/${nameFile}`
 
         const updatedProject = {
             name,
@@ -114,7 +128,7 @@ async function updateProject(req, res, next) {
             checkNode,
             checkSocket,
             checkReact,
-            imageProject: nameFile,
+            imageProject: imageUrl,
             duration: durationProject(startDate, endDate),
         }
 
@@ -123,11 +137,13 @@ async function updateProject(req, res, next) {
         deleteImage(oldProject.imageProject)
 
         await ProjectModel.updateOne({ _id: id }, { $set: updatedProject })
-        saveImage(req.file.buffer, "assets/project", nameFile)
+        saveImage(req.file.buffer, "../../assets/project/", nameFile)
 
-        return res.redirect(`/project`)
+        req.flash("succes", "succesfully update the project")
+        return res.redirect("/project")
     } catch (err) {
-        return next(createError(400, err.message))
+        req.flash("error", `failed to update the project ${err.message}`)
+        return res.redirect("project")
     }
 }
 
@@ -135,11 +151,15 @@ async function detailProject(req, res, next) {
     try {
         const id = req.params.id
         const Project = await ProjectModel.findOne({ _id: id })
+        const session = req.session.user
         return res.render("project-page/detail-project.ejs", {
             layout: "partials/template.ejs",
             Project,
+            pageActive: "project",
+            session,
         })
     } catch (err) {
+        req.flash("error", err.message)
         return res.redirect(`/project`)
     }
 }

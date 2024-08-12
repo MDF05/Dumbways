@@ -2,15 +2,34 @@
 <%- contentFor("linkCss") %>
 <link rel="stylesheet" href="assets/css/myproject.css" />
 <link rel="stylesheet" href="assets/css/listproject.css" />
+<script>
+    setTimeout(() => document.querySelector(".alert").classList.add("d-none"), 4000)
+</script>
+
+<%- contentFor("body")  %>
+<% if(messages?.danger) { %>
+<div class="alert alert-danger alert-dismissible fade show position-fixed w-100 top-0" role="alert"
+    style="z-index: 10000;">
+    <%messages.danger.forEach(msg => { %>
+    <%= msg %>
+    <% })  %>
+    <button type=" button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+<% } %>
 
 
-<%- contentFor("body") %>
+<% if(messages?.succes) { %>
+<div class="alert alert-success alert-dismissible fade show position-fixed w-100 top-0" role="alert"
+    style="z-index: 10000;">
+    <%messages.succes.forEach(msg => { %>
+    <%= msg %>
+    <% })  %>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+<%  }%>
+
 <div class="container-project">
-    <div class="alert">
-
-    </div>
-
-    <div class="add-project">
+    <div class="add-project mt-5">
         <h1>add my project</h1>
         <form action="/project" method="post" enctype="multipart/form-data">
             <div>

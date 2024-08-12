@@ -16,7 +16,7 @@ function datePostConvert(datePost) {
         "Desember",
     ]
 
-    return `${ClasssDate.getDay()} ${
+    return `${ClasssDate.getDate()} ${
         nameOfMonth[ClasssDate.getMonth()]
     } ${ClasssDate.getFullYear()}`
 }
